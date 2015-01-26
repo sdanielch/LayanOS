@@ -1,7 +1,8 @@
 function windows_content(id, contenido, url22) {
+
+
  // SI NO EXISTE LA VENTANA LA CREAMOS
   if ($("#"+id).length === 0){
-
     // Creamos el div con las propiedades
   var ventana = $('<div/>', {
     'class' : 'windows',
@@ -26,8 +27,14 @@ function windows_content(id, contenido, url22) {
   $(ventana).appendTo("#principal");
   $(ventana_t).appendTo(windows);
 
+  var extension = contenido.substr( (contenido.lastIndexOf('.') +1) );
+  var abc = contenido.split("."+extension);
+  var vtitulo = abc[0];
+
+
+
   var cont = decodeURI(contenido);
-  $("#"+c_ventana_t).html("<strong> "+cont+"</strong> <div style='position: absolute; top: 5px; right: 45px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='position: absolute; top: 5px; right: 25px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='position: absolute; top: 5px; right: 5px; width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' />");
+  $("#"+c_ventana_t).html("<strong> "+vtitulo+"</strong> <div style='position: absolute; top: 5px; right: 45px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='position: absolute; top: 5px; right: 25px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='position: absolute; top: 5px; right: 5px; width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' />");
   // CERRAR VENTANA
   $("#"+id+id+id+id).click(function() {
   $("#"+id).fadeOut(150);
@@ -146,4 +153,6 @@ var vc = "#"+c_ventana_t;
       $("#"+id).focus();
 
     }
+
+  
 }

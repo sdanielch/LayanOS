@@ -284,13 +284,15 @@ animation: myfirst3 500ms;
 
 
   #sidebar {
-    background:#181818 url('../php/blur_image2.php') no-repeat center top fixed;
+    /* background:#181818 url('../php/blur_image2.php') no-repeat center top fixed; */
+    background: rgba(0,0,0,0.8);
 
   }
 
   @supports (background-size: cover) {
     #sidebar {
-      background: #181818 url('../php/blur_image2.php') no-repeat center center fixed;
+      /* background:#181818 url('../php/blur_image2.php') no-repeat center top fixed; */
+      background: rgba(0,0,0,0.8);
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -372,13 +374,17 @@ animation: myfirst3 500ms;
 }
 
 #mdash {
-  background:#181818 url('../php/blur_image2.php') no-repeat center top fixed;
+  /*background:#181818 url('../php/blur_image2.php') no-repeat center top fixed;*/
+  background: rgba(0,0,0,0.8);
+
 
 }
 
 @supports (background-size: cover) {
   #mdash {
-    background: #181818 url('../php/blur_image2.php') no-repeat center center fixed;
+    /*background: #181818 url('../php/blur_image2.php') no-repeat center center fixed;*/
+    background: rgba(0,0,0,0.8);
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -491,7 +497,8 @@ animation: myfirst3 500ms;
 
 @supports (background-size: cover) {
   .notificacion {
-    background: #181818 url('../php/blur_image2.php') no-repeat center center fixed;
+    /*background: #181818 url('../php/blur_image2.php') no-repeat center center fixed;*/
+    background: rgba(0,0,0,0.8);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -566,4 +573,46 @@ animation: myfirst3 500ms;
   width: 100%;
   border-radius: 10px;
 
+}
+
+
+.btopbar {
+  border-radius: 4px;
+  background: #323232 !important;
+  color: #DCDCDC;
+  height: 30px;
+  border: 1px outset #484848 !important;
+  box-sizing: border-box;
+  padding: 4px;
+  margin-top: 5px !important;
+  text-shadow: 1px 1px 4px #181818;
+  width: auto !important;
+  height: 30px;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  margin-left: 1px !important;
+  margin-right: 1px !important;
+}
+.btopbar:hover {
+  background: #3c3c3c !important;
+}
+.btopbar:active {
+  background: #282828 !important;
+  border: 1px inset #484848 !important;
+}
+input[type='file'] {
+  position: relative;
+  text-align: right;
+
+  z-index: 2;
+}
+
+#cderecho {
+  width:250px;
+  position:absolute;
+  border:1px solid black;
+
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 0 0 5px #888;
 }

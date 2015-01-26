@@ -24,7 +24,7 @@
 
 
     //al enviar el formulario
-    $(':button').click(function(){
+    $('#wall:button').click(function(){
         //información del formulario
         var formData = new FormData($(".formulario")[0]);
         var message = "";

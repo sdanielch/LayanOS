@@ -2,10 +2,6 @@ function taskbar(id, nombre) {
 
   var windowId = id.substr(1);
 
-
-
-
-
 // Recuerda que ID se pasa con _Y LA ID
   var tarea = $('<div/>', {
     'id' : id,
@@ -16,10 +12,6 @@ function taskbar(id, nombre) {
   var rcolor = randomColor();
 
   $("#"+id).html("<div style='width: 100%; height: 10px; background:"+ rcolor +"; position: absolute; bottom: 0px; left: 0px; opacity: 0.8; border-radius: 10px 10px 0px 0px;'></div>");
-
-
-
-
 
   $("#"+id).click(function() {
     var windowId = id.substr(1);
@@ -68,6 +60,24 @@ function taskbar(id, nombre) {
                     "background-position" : "center top"
                   });
   break;
+  case 'avi':
+  case 'mp4':
+  case 'wmv':
+    $( str2 ).css({
+      "background-image" : "url('../img/video.png')",
+      "background-repeat" : "no-repeat",
+      "background-position" : "center top"
+    });
+  break;
+
+  case 'mp3':
+    case 'wma':
+      $( str2 ).css({
+        "background-image" : "url('../img/audio.png')",
+        "background-repeat" : "no-repeat",
+        "background-position" : "center top"
+      });
+      break;
 
   case 'app':
     var abc = nombre.split(".app");

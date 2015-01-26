@@ -1,0 +1,58 @@
+
+
+.container {
+	margin: 0 auto !important;
+	width: 350px !important;
+}
+
+.calculator {
+	padding: 10px !important;
+	margin-top: 20px !important;
+	background-color: #232323 !important;
+	background: #232323 !important;
+	border-radius: 5px !important;
+	/*this is to remove space between divs that are inline-block*/
+	font-size: 0 !important;
+}
+
+.calculator > input[type=text] {
+	width: 100% !important;
+	height: 50px !important;
+	border: none !important;
+	background-color: #484848 !important;
+	text-align: right !important;
+	font-size: 30px !important;
+	padding-right: 10px !important;
+}
+
+.calculator .row {
+	margin-top: 10px !important;
+}
+
+.calculator .key {
+	width: 78.7px !important;
+	display: inline-block !important;
+	background-color: black !important;
+	color: white !important;
+	font-size: 2rem !important;
+	margin-right: 5px !important;
+	border-radius: 5px !important;
+	height: 50px !important;
+	line-height: 50px !important;
+	text-align: center !important;
+}
+
+.calculator .key:hover{
+	cursor: pointer !important;
+}
+
+.key.last{
+	margin-right: 0px !important;
+}
+
+.key.action {
+	background-color: #646060 !important;
+}
+.row {
+	margin: 0px;
+}

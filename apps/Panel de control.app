@@ -50,12 +50,12 @@
   </script>
   <style>
   .ui-widget-content { background: transparent; color: #181818;}
-  .ui-tabs-vertical { width: 100%;   height: 100%; }
-  .ui-tabs-vertical .ui-tabs-nav { padding: 5px ; float: left; width: 150px; }
+  .ui-tabs-vertical { width: 100%;   height: calc(100% - 28px); }
+  .ui-tabs-vertical .ui-tabs-nav { padding: 0px ; float: left; width: 150px; }
   .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
   .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: calc(100% - 200px); height: calc(100% - 32px);}
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1px; float: right; width: calc(100% - 200px); height: calc(100% - 32px);}
   .ui-widget-header { height: calc(100% - 12px);}
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0px;}
   .ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 0px;}
@@ -74,24 +74,69 @@
   .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
     border-bottom-right-radius: 0px;
   }
+  .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: none;
+    padding: 2px;
+    text-decoration: none;
   </style>
 </head>
 
 <body>
+<div style="width: 100%; height: 40px; background: #181818 url('../img/bnoise.png');">
+  <div type="button" class="btopbar fa fa-chevron-left" style="font-size: 20px;"></div>
+  <div type="button" class="btopbar fa fa-chevron-right" style="font-size: 20px;"></div>
+  <div type="button" class="btopbar fa fa-refresh" style="font-size: 20px;"></div>
+  <div type="button" class="btopbar fa fa-cog" style="font-size: 20px; float:right"></div>
 
+</div>
 
   <div id="tabs">
     <ul>
-      <li><a href="#tabs-1">Fondo</a></li>
-      <li><a href="#tabs-2">Perfil</a></li>
-      <li><a href="#tabs-3">Recursos</a></li>
+      <li><a href="#tabs-1">Fondo de pantalla</a></li>
+      <li><a href="#tabs-2">Premium</a></li>
+      <li><a href="#tabs-2">Bugs</a></li>
+      <li><a href="#tabs-3">Tu cuenta</a></li>
     </ul>
     <div id="tabs-1" style="overflow: auto;">
       <!--el enctype debe soportar subida de archivos con multipart/form-data-->
       <form enctype="multipart/form-data" class="formulario">
-        <label>Subir un archivo</label><br />
-        <input name="archivo" type="file" id="imagen" accept="image/jpeg" required /><br /><br />
-        <input type="button" value="Subir y cambiar fondo" /><br />
+        <b>Haga click en "<i>Elegir fichero</i>" para subir una imagen con formato JPG y luego pulse en "Subir y cambiar fondo" para realizar los cambios.</b><br />
+        <!--<input name="archivo" type="file" id="imagen" accept="image/jpeg" required />-->
+
+
+<script>document.getElementById("uploadBtn").onchange = function () {
+  document.getElementById("imagen").value = this.value;
+};</script>
+      <style>
+      .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+      }
+      .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+      }
+      </style>
+      <input id="imagen" placeholder="Elige fichero..." disabled="disabled" />
+      <div class="fileUpload btn btn-primary">
+        <span>Elegir fichero</span>
+        <input name="archivo" id="uploadBtn" type="file" accept="image/jpeg" class="upload" />
+      </div>
+
+
+
+
+
+        <br /><br />
+        <input type="button" id="wall" value="Subir y cambiar fondo" /><br />
       </form>
       <!--div para visualizar mensajes-->
       <div class="messages"></div><br /><br />

@@ -10,8 +10,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>LayanOS | Aplicación</title>
-  <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/css/default.css?<?php echo time(); ?>" media="screen" />
   <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+
+
   <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
   <script type="text/javascript">
@@ -23,12 +27,19 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <link rel="stylesheet" type="text/css" href="../css/app.css">
+  <link rel="stylesheet" type="text/css" href="../css/app.css?<?php echo time(); ?>">
 </head>
 <body>
 <?php include('../html/topbar.html'); ?>
 <?php include('../html/sidebar.html'); ?>
 <?php include('../html/dash.html'); ?>
+<div id="cderecho">
+  <ul>
+    <li id="copiar">Editar</li>
+    <li id="mover">Mover</li>
+    <li id="eliminar">Panel de control</li>
+  </ul>
+</div>
 <script language="JavaScript" type="text/JavaScript">
 var jqxhr = $.get( "getapps.php", function(data) {
   var data = JSON.parse(data);

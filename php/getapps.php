@@ -1,6 +1,5 @@
 <?php
 #! /usr/bin/php
-
 $apps = array();
 
 $listar = null;

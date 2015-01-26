@@ -33,14 +33,14 @@ function notify(icono,texto,duracion) {
   case 'alerta':
   case 'info':
   case 'aviso':
-    var ico = "<img src='../img/info.png' style='width: 72px; height: 72px; float:left; margin-right: 5px; margin-bottom: 5px;' />"
+    var ico = "<span class='fa fa-bullhorn' style='width: 72px; height: 72px; float:left; margin-right: 5px; margin-bottom: 5px; font-size: 64px; text-align: center;' />"
   break;
   case 'error':
   case 'fail':
-    var ico = "<img src='../img/error.png' style='width: 72px; height: 72px; float:left; margin-right: 5px; margin-bottom: 5px;' />"
+    var ico = "<span class='fa fa-exclamation-triangle' style='width: 72px; height: 72px; float:left; margin-right: 5px; margin-bottom: 5px; font-size: 64px; text-align: center;' />"
   break;
   default:
-    var ico = "<img src='../img/info.png' style='width: 72px; height: 72px; float:left; margin-right: 5px; margin-bottom: 5px;' />"
+    var ico = "<span class='fa fa-exclamation-triangle' style='width: 72px; height: 72px; float:left; margin-right: 5px; margin-bottom: 5px; font-size: 64px; text-align: center;' />"
   }
 
 

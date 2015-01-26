@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
 
-  <title>LayanOS | Usuario</title>
+  <title>LayanOS | Usuario</title> 
 </head>
 <body>
   <div id="login">

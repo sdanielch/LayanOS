@@ -8,11 +8,15 @@ function parents(div) {
 var xx = parents(".windows #cempezar");
 var cc = $( window ).width();
 var dd = $( window ).height();
+function cambiar_id(id) {
+var now = Date.now();
+$("#"+xx).attr("id",now);   
+}
 $("#"+xx).animate({
   "top":35,
   "left":80,
-  "width":cc - 100,
-  "height":dd - 80
+  "width":cc - 300,
+  "height":dd - 300
 }, 300, function() {
   // Animation complete.
 });

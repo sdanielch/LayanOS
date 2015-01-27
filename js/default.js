@@ -45,7 +45,20 @@ case "mover":
 console.log("movido!");
 break;
 case "eliminar":
-console.log("eliminado!");
+
+          var vtitulo2 = "Panel de control.app";
+          var id_aleatoria2 = "CD" + "app"
+
+          if ($("#"+id_aleatoria2+"T").text() == " "+vtitulo2+"    ") {
+
+          } else {
+            taskbar("_"+id_aleatoria2, vtitulo2);
+          }
+
+          windows_content(id_aleatoria2, vtitulo2,"../apps");
+
+
+
 break;
 }
 });

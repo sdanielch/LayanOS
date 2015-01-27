@@ -447,9 +447,9 @@ animation: myfirst3 500ms;
 }
 
 .gi {
-  -ms-transform: rotate(180deg); /* IE 9 */
-  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-  transform: rotate(180deg);
+  -ms-transform: rotate(270deg); /* IE 9 */
+  -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+  transform: rotate(270deg);
 }
 #orb {
   -webkit-transition: all 300ms ease-in-out;

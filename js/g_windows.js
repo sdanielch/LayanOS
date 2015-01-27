@@ -37,9 +37,23 @@ function windows_content(id, contenido, url22) {
   $("#"+c_ventana_t).html("<strong> "+vtitulo+"</strong> <div style='position: absolute; top: 5px; right: 45px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='position: absolute; top: 5px; right: 25px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='position: absolute; top: 5px; right: 5px; width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' />");
   // CERRAR VENTANA
   $("#"+id+id+id+id).click(function() {
+$('#'+id).addClass("trans300");
+$('#'+id).addClass("ccwindows");
+setTimeout(function(){
+$("#_"+id).remove();
+$("#"+id).remove();
+}, 300);
+
+   
+  
+
+/*
   $("#"+id).fadeOut(150);
-  $("#"+id).remove();
   $("#_"+id).remove();
+  setTimeout(function(){ $("#"+id).remove(); }, 150);
+*/
+  
+  
   });
 
   $("#"+c_ventana_t).mousedown(function(e){

@@ -74,6 +74,7 @@ function windows_content(id, contenido, url22) {
   $("#"+id+id+id+id+id).click(function() {
     $("#"+id).removeClass( "seleccionado" );
         $("#"+id).addClass( "minimizado" );
+        $("#"+id).addClass( "trans300" );
         setTimeout(function(){ $("#"+id).hide(); }, 300);
   });
 
@@ -119,7 +120,7 @@ var vc = "#"+c_ventana_t;
         appendTo: windows,
         stack: ".windows",
         cursor: "crosshair",
-        opacity: 0.35,
+        opacity: 0.8,
         handle: vc,
         containment: "document",
         drag: function( event, ui ) { $("#"+id).removeClass("max-restore")

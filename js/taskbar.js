@@ -18,13 +18,19 @@ function taskbar(id, nombre) {
     if ($("#"+windowId).hasClass( "seleccionado" )) {
       $(".windows").removeClass( "seleccionado" );
       $("#"+windowId).addClass( "minimizado" );
-        setTimeout(function(){ $("#"+windowId).hide(); }, 300);
+      $("#"+windowId).addClass( "trans300" );
+      setTimeout(function(){ $("#"+windowId).hide(); }, 300);
 
     }
     else {
-
+    $("#"+windowId).show();
+    setTimeout(function(){ 
     $("#"+windowId).removeClass( "minimizado" );
-    $("#"+windowId).show(150);
+    }, 10);
+    setTimeout(function(){ $("#"+windowId).removeClass( "trans300" ); }, 310);
+
+        
+
     $("#"+windowId).focus();
     $(".windows").zIndex( 200 );
     $("#"+windowId).zIndex( 205 );

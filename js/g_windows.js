@@ -133,7 +133,7 @@ var vc = "#"+c_ventana_t;
         minHeight: 150
 
       });
-      $("#"+id).hide(0);
+      //$("#"+id).hide(0);
       var w_app = $( "#"+id ).width();
       var h_app = $( "#"+id ).height();
       var w_screen = $( window ).width();
@@ -143,7 +143,7 @@ var vc = "#"+c_ventana_t;
       var pos1 = aleatorio_ancho
       var pos2 = aleatorio_alto
       $("#"+id).css({'left': pos1, 'top': pos2});
-      $("#"+id).fadeIn(300);
+      //$("#"+id).fadeIn(300);
       $("#"+id).focus();
 
 

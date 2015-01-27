@@ -8,22 +8,6 @@
 	<meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
 	<title>LayanOS | Usuario</title>
-  <script language="JavaScript" type="text/JavaScript">
-  var dominio = document.domain;
-  var url = document.URL;
-  var du1 = "http://" + dominio;
-  var du2 = du1 + "/index.php";
-  var du3 = du1 + "/";
-  var du4 = du1 + "#";
-  var du5 = du1 + "?";
-  if (url == du1 | url == du2 | url == du2 | url == du3 | url == du4 | url == du5 ) {
-    console.log("Entrada correcta")
-  } else {
-    // Forzamos a ir a la página inicial
-    console.log("Entrada incorrecta, volviendo al index")
-    window.location = du1;
-  }
-  </script>
 </head>
 <body>
   <div id="login">

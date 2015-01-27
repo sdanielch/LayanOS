@@ -1,7 +1,7 @@
  <?php
     $host_db = "localhost"; // Host de la BD
-    $usuario_db = "root"; // Usuario de la BD
-    $clave_db = ""; // Contraseña de la BD
+    $usuario_db = "layanos"; // Usuario de la BD
+    $clave_db = "layanos"; // Contraseña de la BD
     $nombre_db = "layanos"; // Nombre de la BD
 
     //conectamos y seleccionamos db

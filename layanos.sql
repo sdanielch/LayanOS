@@ -27,13 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `usuario_id` int(4) NOT NULL AUTO_INCREMENT,
+  `usuario_id` int unsigned NOT NULL AUTO_INCREMENT,
   `usuario_nombre` varchar(15) NOT NULL DEFAULT '',
-  `usuario_clave` varchar(32) NOT NULL DEFAULT '',
-  `usuario_email` varchar(50) NOT NULL DEFAULT '',
+  `usuario_clave` char(32) NOT NULL DEFAULT '',
+  `usuario_email` varchar(50) NOT NULL UNIQUE,
   `usuario_freg` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`usuario_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`

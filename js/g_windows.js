@@ -73,7 +73,8 @@ function windows_content(id, contenido, url22) {
   // MINIMIZAR VENTANA
   $("#"+id+id+id+id+id).click(function() {
     $("#"+id).removeClass( "seleccionado" );
-    $("#"+id).hide("drop",150);
+        $("#"+id).addClass( "minimizado" );
+        setTimeout(function(){ $("#"+id).hide(); }, 300);
   });
 
 

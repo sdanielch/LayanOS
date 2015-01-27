@@ -17,10 +17,14 @@ function taskbar(id, nombre) {
     var windowId = id.substr(1);
     if ($("#"+windowId).hasClass( "seleccionado" )) {
       $(".windows").removeClass( "seleccionado" );
-      $("#"+windowId).hide("drop", 150)
+      $("#"+windowId).addClass( "minimizado" );
+        setTimeout(function(){ $("#"+windowId).hide(); }, 300);
+
     }
     else {
-    $("#"+windowId).show("drop",150);
+
+    $("#"+windowId).removeClass( "minimizado" );
+    $("#"+windowId).show(150);
     $("#"+windowId).focus();
     $(".windows").zIndex( 200 );
     $("#"+windowId).zIndex( 205 );

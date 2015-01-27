@@ -121,9 +121,18 @@ function taskbar(id, nombre) {
   break;
   case 2:
   //middle Click
-  $("#"+windowId).fadeOut(150);
+ /* $("#"+windowId).fadeOut(150);
   $("#"+windowId).remove();
-  $(str2).remove();
+  $(str2).remove();*/
+
+$("#"+windowId).addClass("trans300");
+$("#"+windowId).addClass("ccwindows");
+$(str2).remove();
+setTimeout(function(){
+$("#"+windowId).remove();
+
+}, 300);
+
   break;
   case 3:
   //right Click

@@ -63,9 +63,12 @@ $("#"+id).remove();
         break;
         case 2:
           //middle Click
-          $("#"+id).fadeOut(150);
-          $("#"+id).remove();
-          $("#_"+id).remove();
+         $('#'+id).addClass("trans300");
+$('#'+id).addClass("ccwindows");
+setTimeout(function(){
+$("#_"+id).remove();
+$("#"+id).remove();
+}, 300);
           break;
           case 3:
             //right Click

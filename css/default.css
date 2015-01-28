@@ -668,7 +668,6 @@ input[type='file'] {
 
 
 .minimizado {
-  position: fixed !important;
   opacity: 0 !important;
   left: -100px !important;
   transform:scale(0.5,0.5);

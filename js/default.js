@@ -13,19 +13,19 @@ $("#cderecho").hide();
 
 /* mostramos el menú si hacemos click derecho
 con el ratón */
-$(document).bind("contextmenu", function(e){
+/*$(document).bind("contextmenu", function(e){
   $("#cderecho").css({'display':'block', 'left':e.pageX, 'top':e.pageY});
   return false;
 });
-
+*/
 
 //cuando hagamos click, el menú desaparecerá
-$(document).click(function(e){
+/*$(document).click(function(e){
   if(e.button == 0){
     $("#cderecho").css("display", "none");
   }
 });
-
+*/
 //si pulsamos escape, el menú desaparecerá
 $(document).keydown(function(e){
   if(e.keyCode == 27){

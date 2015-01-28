@@ -107,27 +107,63 @@ $("#"+id).remove();
   $(ventana_c).appendTo(windows);
   console.log("Ejecutando: "+contenido);
   // Codificamos el nombre de fichero para que sea leible por Ajax
-  var contenido2 = encodeURI(contenido);
-  var url = url22+ "/" + contenido2;
+  
+  
   var extension = contenido.substr( (contenido.lastIndexOf('.') +1) );
 
-  if (extension == "app") {
-    $("#"+id).css({'width': 600, 'height': 350});
+    var contenido = decodeURI(contenido);
+    $("#"+id).css({'width': 600, 'height': 420});
+    url = "../home/"+usuario+"/documents/"+contenido;
 
-    $("#"+c_ventana_c).load(url,function(responseTxt,statusTxt,xhr){
+  // SI NO ES UNA APP
+  // RECONOCIMIENTO POR EXTENSION
+
+  switch(extension) {
+  case 'jpg':
+  case 'gif':
+  case 'png':
+  case 'jpeg':
+  case 'bmp':
+  $("#"+c_ventana_c).addClass("centrado");
+  $(windows).css("background", "#000");
+  $('<img src="'+url+'" class="img_doc" id="'+id+'IMG'+'"/>').appendTo("#"+c_ventana_c)
+  break;
+  case 'app':
+  var contenido2 = encodeURI(contenido);
+  var url = url22+ "/" + contenido2;
+  $("#"+c_ventana_c).load(url,function(responseTxt,statusTxt,xhr){
       if(statusTxt=="success")
         console.info("Carga completada.");
         if(statusTxt=="error")
           console.error("Error al abrir: "+contenido+" "+xhr.status+": "+xhr.statusText);
         });
-  }
-  else {
-    var contenido = decodeURI(contenido);
-    url = "../home/"+usuario+"/documents/"+contenido;
+  break;
+  case 'txt':
+  $(windows).css("background", "#000");
+  $('<textarea id="'+c_ventana_c+'2" width="100%" height="100%"></textarea>').appendTo("#"+c_ventana_c);
+  $('<script type="text/javascript">tinymce.init({selector: "#'+c_ventana_c+'2", document_base_url: "'+url+'"});</script>').appendTo("#"+c_ventana_c);
 
-    $("#"+id).css({'width': 600, 'height': 420});
-    $('<iframe src="'+url+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)
+
+
+
+$("#"+c_ventana_c+"2").load(url,function(responseTxt,statusTxt,xhr){
+      if(statusTxt=="success")
+        $(this).val(responseTxt);
+        if(statusTxt=="error")
+          console.error("Error al abrir: "+contenido+" "+xhr.status+": "+xhr.statusText);
+        });
+
+
+
+  break;
+  default:
+  $('<iframe src="'+url+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)
+
   }
+
+                        
+  
+
 
 
 

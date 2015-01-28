@@ -431,6 +431,14 @@ animation: windows 300ms;
   width: 100%;
   height: calc(100% - 30px);
 }
+
+.img_doc {
+  position:relative;
+  text-align: center;
+  max-width: 100%;
+  max-height: calc(100% - 30px);
+  margin: 0 auto;
+}
 .btitulos {
   position:relative;
   width: 100%;
@@ -678,4 +686,8 @@ input[type='file'] {
   -ms-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+}
+
+.centrado {
+  text-align: center;
 }

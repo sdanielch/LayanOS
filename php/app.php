@@ -116,6 +116,10 @@ paceOptions = {
 <!-- Scripts por defecto -->
 <script type="text/javascript" src="../js/default.js"></script>
 
+<script type="text/javascript" src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+
+
+
 <p>	Su lista de ficheros:</p>
 </div>
 </body>

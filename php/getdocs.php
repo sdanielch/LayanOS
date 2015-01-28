@@ -3,6 +3,7 @@
 session_start();
 $apps2 = array();
 $listar2 = null;
+$folder = $_GET["folder"];
 $dirdocs = '../home/'.$_SESSION['usuario_nombre'].'/documents';
 $directorio2 = opendir($dirdocs);
 while($elemento2 = readdir($directorio2)) {

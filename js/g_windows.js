@@ -140,21 +140,58 @@ $("#"+id).remove();
   break;
   case 'txt':
   $(windows).css("background", "#000");
-  $('<textarea id="'+c_ventana_c+'2" width="100%" height="100%"></textarea>').appendTo("#"+c_ventana_c);
-  $('<script type="text/javascript">tinymce.init({selector: "#'+c_ventana_c+'2", document_base_url: "'+url+'"});</script>').appendTo("#"+c_ventana_c);
-
-
-
-
+  $('<textarea id="'+c_ventana_c+'2" style="width: 100%; height: calc(100% - 30px);"></textarea>').appendTo("#"+c_ventana_c);
+ 
 $("#"+c_ventana_c+"2").load(url,function(responseTxt,statusTxt,xhr){
       if(statusTxt=="success")
-        $(this).val(responseTxt);
+       $(this).val(responseTxt);
+
+
+$("#"+c_ventana_c+"2").kendoEditor({
+            tools: [
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+                "justifyLeft",
+                "justifyCenter",
+                "justifyRight",
+                "justifyFull",
+                "insertUnorderedList",
+                "insertOrderedList",
+                "indent",
+                "outdent",
+                "createLink",
+                "unlink",
+                "insertImage",
+                "insertFile",
+                "subscript",
+                "superscript",
+                "createTable",
+                "addRowAbove",
+                "addRowBelow",
+                "addColumnLeft",
+                "addColumnRight",
+                "deleteRow",
+                "deleteColumn",
+                "viewHtml",
+                "formatting",
+                "cleanFormatting",
+                "fontName",
+                "fontSize",
+                "foreColor",
+                "backColor"
+            ]
+        });
+
+
         if(statusTxt=="error")
           console.error("Error al abrir: "+contenido+" "+xhr.status+": "+xhr.statusText);
         });
 
-
-
+/*
+       
+       */
   break;
   default:
   $('<iframe src="'+url+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)

@@ -148,8 +148,7 @@
     var str2 = "#id_" + id + " .icon"
     var extension = elemento.substr( (elemento.lastIndexOf('.') +1) );
 
-
-    switch(extension) {
+  switch(extension) {
       case 'jpg':
         case 'png':
           case 'gif':
@@ -207,6 +206,9 @@
                         "background-repeat" : "no-repeat",
                         "background-position" : "center top"
                       });
+
+
+   
     }
 
 return true;

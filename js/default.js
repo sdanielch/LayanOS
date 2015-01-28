@@ -8,19 +8,54 @@ console.log("Su directorio de usuario acaba de ser creado con una configuración
 }
 
 
+
+
+
+
+// PRIMER SCRIPT
+var jqxhr = $.get( "getapps.php", function(data) {
+  var data = JSON.parse(data);
+  var groupname = 'Leyendo aplicaciones:';
+  console.group( groupname );
+  for (var i = 0;i< data.length;i++){
+    data.sort();
+    crea_iconos(i,data[i],"fichero","#e_dash");
+  }
+  console.groupEnd();
+
+})
+
+
+
+
+.done(function() {
+  console.log("Documentos Leídos")
+})
+.fail(function() {
+  console.error( "Error al cargar los documentos." );
+})
+.always(function() {
+  console.log( "Orden correcta." );
+});
+
+
+
+
+
+
+
 //Ocultamos el menú al cargar la página
 $("#cderecho").hide();
 
-/* mostramos el menú si hacemos click derecho
-con el ratón */
+//mostramos el menú si hacemos click derecho con el ratón 
 /*$(document).bind("contextmenu", function(e){
   $("#cderecho").css({'display':'block', 'left':e.pageX, 'top':e.pageY});
   return false;
 });
-*/
+
 
 //cuando hagamos click, el menú desaparecerá
-/*$(document).click(function(e){
+$(document).click(function(e){
   if(e.button == 0){
     $("#cderecho").css("display", "none");
   }

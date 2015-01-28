@@ -1,16 +1,14 @@
-<div id="cempezar2" style="display: none;"></div>
+<div id="cempezar3" style="display: none;"></div>
 <script>
 function parents(div) {
   var a = $(div).parents("div").attr("id");
   var b = $("#"+a).parents("div").attr("id");
   return b;
 }
-var xxx = parents(".windows #cempezar2");
-var ccc = $( ".calculator" ).width();
-var ddd = $( ".calculator" ).height();
+var xxx = parents(".windows #cempezar3");
 $("#"+xxx).animate({
-  "width":420,
-  "height":ddd + 50
+  "width":600,
+  "height": 400
 }, 300, function() {
   // Animation complete.
 });
@@ -18,32 +16,27 @@ $("#"+xxx).animate({
 
 <script type="text/javascript" src="../apps/Calculadora/calculator.js"></script>
   <link rel="stylesheet" type="text/css" href="../apps/Calculadora/main.css?main">
+<div id="gestor_ficheros" class="gestor_ficheros"></div>
+<script language="JavaScript" type="text/JavaScript">
+var folder = "/";
+$.get( "getdocs.php", {folder:folder}, function(data2) {
+  var data2 = JSON.parse(data2);
+  var groupname = 'Leyendo documentos:';
+  console.group( groupname );
+  for (var e = 0;e< data2.length;e++){
+    data2.sort();
+    crea_iconos(e+'fichero',data2[e],"fichero2","#gestor_ficheros");
+  }
+  console.groupEnd();
 
-
-<div class="calculator">
-  <input type="text" readonly>
-  <div class="row">
-    <div class="key">1</div>
-    <div class="key">2</div>
-    <div class="key">3</div>
-    <div class="key last">0</div>
-  </div>
-  <div class="row">
-    <div class="key">4</div>
-    <div class="key">5</div>
-    <div class="key">6</div>
-    <div class="key last action instant">cl</div>
-  </div>
-  <div class="row">
-    <div class="key">7</div>
-    <div class="key">8</div>
-    <div class="key">9</div>
-    <div class="key last action instant">=</div>
-  </div>
-  <div class="row">
-    <div class="key action">+</div>
-    <div class="key action">-</div>
-    <div class="key action">x</div>
-    <div class="key last action">/</div>
-  </div>
-</div>
+})
+.done(function() {
+  console.log("Documentos Leídos")
+})
+.fail(function() {
+  console.error( "Error al cargar los documentos." );
+})
+.always(function() {
+  console.log( "Orden correcta." );
+});
+</script>

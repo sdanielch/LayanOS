@@ -650,6 +650,7 @@ input[type='file'] {
   -webkit-box-shadow: 2px 10px 10px#181818;
   box-shadow: 2px 10px 10px #181818;
   border-radius: 10px;
+  display: none;
 }
 #cderecho ul {
   list-style-type: none;
@@ -690,4 +691,10 @@ input[type='file'] {
 
 .centrado {
   text-align: center;
+}
+
+.gestor_ficheros {
+  width: 100%;
+  height: calc(100% - 30px);
+  overflow-y: auto;
 }

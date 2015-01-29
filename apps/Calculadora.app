@@ -10,10 +10,19 @@ var ccc = $( ".calculator" ).width();
 var ddd = $( ".calculator" ).height();
 $("#"+xxx).animate({
   "width":420,
-  "height":ddd + 50
+  "height":ddd + 80
 }, 300, function() {
   // Animation complete.
 });
+
+ $( "#"+xxx ).resizable({
+        ghost: false,
+        minWidth: 420,
+        minHeight: ddd + 80,
+        maxWidth: 420,
+        maxHeight: ddd + 80
+      });
+ $("#"+xxx+" div.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se").hide(); 
 </script>
 
 <script type="text/javascript" src="../apps/Calculadora/calculator.js"></script>

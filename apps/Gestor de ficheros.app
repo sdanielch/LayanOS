@@ -12,11 +12,18 @@ $("#"+xxx).animate({
 }, 300, function() {
   // Animation complete.
 });
-</script>
 
-<script type="text/javascript" src="../apps/Calculadora/calculator.js"></script>
-  <link rel="stylesheet" type="text/css" href="../apps/Calculadora/main.css?main">
+</script>
+<div style="width: 100%; height: 40px; background: #181818 url('../img/bnoise.png');">
+  <div type="button" class="btopbar fa fa-chevron-left" style="font-size: 20px;"></div>
+  <div type="button" class="btopbar fa fa-chevron-right" style="font-size: 20px;"></div>
+  <div type="button" class="btopbar fa fa-refresh" style="font-size: 20px;"></div>
+  <div type="button" class="btopbar fa fa-cog" style="font-size: 20px; float:right"></div>
+
+</div>
 <div id="gestor_ficheros" class="gestor_ficheros"></div>
+
+
 <script language="JavaScript" type="text/JavaScript">
 var folder = "/";
 $.get( "getdocs.php", {folder:folder}, function(data2) {

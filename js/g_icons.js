@@ -22,8 +22,9 @@ function crea_iconos (id,elemento,icono,sitio){
         }
         $(icono).appendTo(sitio);
         var i = "#"+id2
-        $("<div class='icon'></div>").appendTo( i );
-        $("<div class='icontext'>"+e_texto_B+"</div>").appendTo( i +" .icon");
+        $("<div class='icon22'></div>").appendTo( i );
+        $("<div class='icon'></div>").appendTo( i+" .icon22" );
+        $("<div class='icontext'>"+e_texto_B+"</div>").appendTo( i +" .icon22");
 
         $( i ).focus(function() {
           $( i + " .icontext").text(i_texto_A);
@@ -35,22 +36,22 @@ function crea_iconos (id,elemento,icono,sitio){
           }
         });
 // Y AHORA, DEPENDIENDO DE CADA CASO:
-     // SI SE TRATA DE UNA APP
+// SI SE TRATA DE UNA APP
       if (extension2 == "app") {
         $( i ).click(function() {
-          var e22 = elemento.substr( (elemento.lastIndexOf('.') +1) );
-          var abc = elemento.split("."+e22);
-          var vtitulo = abc[0];
-          var id_aleatoria = id + "app"
-          if ($("#"+id_aleatoria+"T").text() == " "+vtitulo+"    ") {
-          } else {
-            taskbar("_"+id_aleatoria, elemento);
-          }
-          var ico = "../apps/"+i_texto_A+"/icon.png"
-          windows_content(id_aleatoria, elemento,"../apps",ico);
-          $("#mdash").hide("drop",150);
-          $("#orb").removeClass("gi");
-        });
+         var e22 = elemento.substr( (elemento.lastIndexOf('.') +1) );
+         var abc = elemento.split("."+e22);
+         var vtitulo = abc[0];
+         var id_aleatoria = id + "app"
+         if ($("#"+id_aleatoria+"T").text() == " "+vtitulo+"    ") {
+         } else {
+         taskbar("_"+id_aleatoria, elemento);
+         }
+         var ico = "../apps/"+i_texto_A+"/icon.png"
+         windows_content(id_aleatoria, elemento,"../apps",ico);
+         $("#mdash").hide("drop",150);
+         $("#orb").removeClass("gi");
+         });
       var str2 = "#id_" + id + " .icon"
       $( i ).addClass("app");
       var abc = i_texto_A.split(".app");

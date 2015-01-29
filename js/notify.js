@@ -1,15 +1,3 @@
-var NNX = $('<div/>', {
-  'id' : 'NNX'
-});
-var pace_ajax = $('<div/>', {
-  'class' : 'pace_ajax'
-});
-
-$(NNX).appendTo("body");
-$(pace_ajax).appendTo(".notificaciones1");
-  console.log("QUE MIERDA PASA")
-
-
 function notify(icono,texto,duracion) {
   console.log("Notificación lanzada")
   var id_aleatoria = Math.floor(Math.random()*2000000000);
@@ -63,10 +51,3 @@ function notify(icono,texto,duracion) {
   }, duracion);
   return true
 }
-
-
-console.log("yeaaa");
-
-
-
-notify("alerta","hola!",3000);

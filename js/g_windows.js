@@ -1,4 +1,4 @@
-function windows_content(id, contenido, url22) {
+function windows_content(id, contenido, url22, icono) {
 
 
  // SI NO EXISTE LA VENTANA LA CREAMOS
@@ -34,7 +34,7 @@ function windows_content(id, contenido, url22) {
 
 
   var cont = decodeURI(contenido);
-  $("#"+c_ventana_t).html("<strong> "+vtitulo+"</strong> <div style='position: absolute; top: 5px; right: 45px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='position: absolute; top: 5px; right: 25px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='position: absolute; top: 5px; right: 5px; width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' />");
+  $("#"+c_ventana_t).html("<img src='"+icono+"' style='width: 16px; height: 16px; position: relative; top: 0px; left: 0px; margin-right: 0px;' /><strong> "+vtitulo+"</strong> <div style='position: absolute; top: 5px; right: 45px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='position: absolute; top: 5px; right: 25px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='position: absolute; top: 5px; right: 5px; width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' />");
   // CERRAR VENTANA
   $("#"+id+id+id+id).click(function() {
 $('#'+id).addClass("trans300");

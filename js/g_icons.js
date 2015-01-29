@@ -46,7 +46,8 @@ function crea_iconos (id,elemento,icono,sitio){
           } else {
             taskbar("_"+id_aleatoria, elemento);
           }
-          windows_content(id_aleatoria, elemento,"../apps");
+          var ico = "../apps/"+i_texto_A+"/icon.png"
+          windows_content(id_aleatoria, elemento,"../apps",ico);
           $("#mdash").hide("drop",150);
           $("#orb").removeClass("gi");
         });
@@ -100,7 +101,7 @@ function ibo(extension){
 
       $( i ).click(function() {
       var id_aleatoria = Math.floor(Math.random()*2000000000);
-      windows_content(id_aleatoria, elemento,"../apps");
+      windows_content(id_aleatoria, elemento,"../apps",iconoz);
       taskbar("_"+id_aleatoria, elemento, iconoz);
       $("#mdash").hide("drop",150);
       $("#orb").removeClass("gi");

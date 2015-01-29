@@ -1,45 +1,11 @@
+<link rel="stylesheet" type="text/css" href="../apps/Panel de control/css/css.css" media="screen" />
+
 <div style="width: 100%; height: calc(100% - 30px); background: #EFEFEF; color: #181818;">
   <script type="text/javascript" src="../js/functions.js"></script>
   <script>
   notify("error","El panel de control aún no ha sido terminado.",8000);
   </script>
-  <style type="text/css">
-  .messages{
-    float: left;
-    font-family: sans-serif;
-    display: none;
-  }
-  .info{
-    padding: 0px;
-    border-radius: 0px;
-    color: #181818;
-    font-size: 14px;
-    text-align: center;
-  }
-  .before{
-
-    color: #24D;
-    font-size: 14px;
-    text-align: center;
-  }
-  .success{
-
-
-    color: #2C2;
-    font-size: 14px;
-    text-align: center;
-  }
-  .error{
-
-    color: #f00;
-    font-size: 18px;
-    text-align: center;
-  }
-
-
-  </style>
-
-
+ 
 
   <script>
   $(function() {
@@ -47,39 +13,7 @@
     $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
   });
   </script>
-  <style>
-  .ui-widget-content { background: transparent; color: #181818;}
-  .ui-tabs-vertical { width: 100%;   height: calc(100% - 28px); }
-  .ui-tabs-vertical .ui-tabs-nav { padding: 0px ; float: left; width: 150px; }
-  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-  .ui-tabs-vertical .ui-tabs-panel { padding: 1px; float: right; width: calc(100% - 160px); height: calc(100% - 32px);}
-  .ui-widget-header { height: calc(100% - 12px);}
-  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0px;}
-  .ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 0px;}
-  .ui-tabs-vertical .ui-tabs-nav li { margin: 0px;}
-  .ui-widget-content {border: 0px;}
-  .ui-tabs {padding: 0px;}
-  .ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
-     border-top-left-radius: 0px;
-  }
-  .ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
-    border-top-right-radius: 0px;
-  }
-  .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
-    border-bottom-left-radius: 0px;
-  }
-  .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
-    border-bottom-right-radius: 0px;
-  }
-  .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
-    float: none;
-    padding: 2px;
-    text-decoration: none;
-  }
-  </style>
-
+  
 
 <body>
 <div style="width: 100%; height: 40px; background: #181818 url('../img/bnoise.png');">
@@ -108,24 +42,7 @@
 <script>document.getElementById("uploadBtn").onchange = function () {
   document.getElementById("imagen").value = this.value;
 };</script>
-      <style>
-      .fileUpload {
-        position: relative;
-        overflow: hidden;
-        margin: 10px;
-      }
-      .fileUpload input.upload {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        font-size: 20px;
-        cursor: pointer;
-        opacity: 0;
-        filter: alpha(opacity=0);
-      }
-      </style><center>
+     <center>
       <input id="imagen" placeholder="Elige fichero..." disabled="disabled" />
       <div class="fileUpload btn btn-primary">
         <span>Elegir fichero</span>

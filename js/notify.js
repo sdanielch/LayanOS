@@ -1,3 +1,13 @@
+$(function(){
+ var notify = $('<div/>', {
+    'id'    : 'NNX'
+  });
+ var notify_2 = $('<div/>', {
+    'id'    : 'PACE'
+  });
+$("body").append(notify);
+$("#NNX").append(notify_2);
+});
 function notify(icono,texto,duracion) {
   console.log("Notificación lanzada")
   var id_aleatoria = Math.floor(Math.random()*2000000000);

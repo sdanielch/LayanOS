@@ -22,7 +22,6 @@ var jqxhr = $.get( "getapps.php", function(data) {
 
 });
 
-console.log("COJONES PACO");
 setTimeout(function(){
 
   notify("alerta","Bienvenido <strong>"+usuario+"</strong><br /><br />Como ves, el proyecto avanza a pasos agigantados ^^ ",8000);

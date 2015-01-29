@@ -24,7 +24,7 @@ paceOptions = {
   var usuario = "<?php echo $_SESSION['usuario_nombre']; ?>";
   var diruser = "<?php echo $diruser; ?>";
   </script>
-<div id="NNX"><div id="PACE"></div></div>
+
 <script src='../js/pace.min.js'></script>
 <script src='../js/jquery-2.1.1.min.js'></script>
 <script src='../js/assets.js'></script>

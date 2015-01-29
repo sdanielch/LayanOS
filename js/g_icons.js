@@ -26,9 +26,7 @@ function crea_iconos (id,elemento,icono,sitio){
         $("<div class='icontext'>"+e_texto_B+"</div>").appendTo( i +" .icon");
 
         $( i ).focus(function() {
-
           $( i + " .icontext").text(i_texto_A);
-
         });
         $( i ).focusout(function() {
           if ($( i ).hasClass( "app" )) {
@@ -36,16 +34,6 @@ function crea_iconos (id,elemento,icono,sitio){
             $( i + " .icontext").text(e_texto_B);
           }
         });
-
-function change_icon(str2,ico) {
-   $( str2 ).css({
-      "background-image" : "url('"+ico+"')",
-      "background-repeat" : "no-repeat",
-      "background-position" : "center top"
-    });
-}
-
-
 // Y AHORA, DEPENDIENDO DE CADA CASO:
      // SI SE TRATA DE UNA APP
       if (extension2 == "app") {
@@ -71,58 +59,59 @@ function change_icon(str2,ico) {
       change_icon(str2,ico);
       } else {
      // SI SE TRATA DE UN FICHERO
-      $( i ).click(function() {
-      var id_aleatoria = Math.floor(Math.random()*2000000000);
-      windows_content(id_aleatoria, elemento,"../apps");
-      taskbar("_"+id_aleatoria, elemento);
-      $("#mdash").hide("drop",150);
-      $("#orb").removeClass("gi");
-    });
-
-    // Luego reconoce la extensión y modifica el estilo CSS
-    var str2 = "#id_" + id + " .icon"
-    var extension = elemento.substr( (elemento.lastIndexOf('.') +1) );
-
+// En función de la extensión del nombre de fichero le ponemos por defecto un icono.
+var str2 = "#id_" + id + " .icon"
+var extension = elemento.substr( (elemento.lastIndexOf('.') +1) );
+function ibo(extension){
+  var ibo
   switch(extension) {
   case 'jpg':
   case 'png':
   case 'gif':
-  change_icon(str2,"../img/img.png");
+  var ibo = "../img/img.png";
   break;
   case 'zip':
   case 'rar':
-  console.log("COMPRIMIDO")
+  var ibo = "../img/img.png";
   break;
   case 'pdf':
-  change_icon(str2,"../img/pdf.png");
+  var ibo = "../img/pdf.png";
   break;
   case 'txt':
-  change_icon(str2,"../img/txt.png");
+  var ibo = "../img/txt.png";
   break;
   case 'avi':
   case 'mp4':
   case 'wmv':
-  change_icon(str2,"../img/video.png");
+  var ibo = "../img/video.png";
   break;
   case 'mp3':
   case 'wma':
-  change_icon(str2,"../img/audio.png");
+  var ibo = "../img/audio.png";
   break;
   default:
-  change_icon(str2,"../img/unknown.png");
+  var ibo = "../img/unknown.png";
     }
+  return ibo  
+  }
+// En la variable iconoz ALMACENAMOS LA RUTA AL ICONO que enviaremos a la TASKBAR
+ var iconoz = ibo(extension);
+ change_icon(str2,iconoz);
 
+      $( i ).click(function() {
+      var id_aleatoria = Math.floor(Math.random()*2000000000);
+      windows_content(id_aleatoria, elemento,"../apps");
+      taskbar("_"+id_aleatoria, elemento, iconoz);
+      $("#mdash").hide("drop",150);
+      $("#orb").removeClass("gi");
+    }); 
 }
-
 // DEVOLVEMOS TRUE SI TODO FUE CORRECTO
 return true;
-
 }
-
 if( a(id,elemento,icono) ) {
   console.log("Doc: "+ elemento + " OK.");
 } else {
   console.error("Doc: "+ elemento + " ERROR.");
-
 }
 }

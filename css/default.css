@@ -576,19 +576,18 @@ animation: windows 300ms;
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 20px;
+  min-height: 12px;
   border: 1px #484848 solid;
-  border-radius: 10px;
+  border-radius: 4px;
   background: rgba(0,0,0,0.8);
   margin-bottom: 10px;
   box-shadow: 2px 2px 4px #000;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
   color: #EFEFEF;
   -webkit-animation: myfirst4 400ms; /* Chrome, Safari, Opera */
   animation: myfirst4 400ms;
   opacity:1;
-  font-size: 14px;
   text-align: justify;
   z-index: 80000;
 }
@@ -598,14 +597,14 @@ animation: windows 300ms;
 }
 
 .pace .pace-progress {
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(230, 230, 230, 0.9);
   position: absolute;
   z-index: -1;
   top: 0px;
   left:0px;
   bottom: 0;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
 
 }
 

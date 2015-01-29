@@ -2,7 +2,6 @@
   <script type="text/javascript" src="../js/functions.js"></script>
   <script>
   notify("error","El panel de control aún no ha sido terminado.",8000);
-
   </script>
   <style type="text/css">
   .messages{
@@ -55,7 +54,7 @@
   .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
   .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-  .ui-tabs-vertical .ui-tabs-panel { padding: 1px; float: right; width: calc(100% - 200px); height: calc(100% - 32px);}
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1px; float: right; width: calc(100% - 160px); height: calc(100% - 32px);}
   .ui-widget-header { height: calc(100% - 12px);}
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0px;}
   .ui-tabs .ui-tabs-nav li.ui-tabs-active { margin-bottom: 0px;}
@@ -78,8 +77,9 @@
     float: none;
     padding: 2px;
     text-decoration: none;
+  }
   </style>
-</head>
+
 
 <body>
 <div style="width: 100%; height: 40px; background: #181818 url('../img/bnoise.png');">
@@ -98,9 +98,10 @@
       <li><a href="#tabs-3">Tu cuenta</a></li>
     </ul>
     <div id="tabs-1" style="overflow: auto;">
-      <!--el enctype debe soportar subida de archivos con multipart/form-data-->
+
       <form enctype="multipart/form-data" class="formulario">
-        <b>Haga click en "<i>Elegir fichero</i>" para subir una imagen con formato JPG y luego pulse en "Subir y cambiar fondo" para realizar los cambios.</b><br />
+      <b>Tenga presente, que cualquier cambio hará que se refresque el navegador con la nueva configuración, por esto, guarde los documentos que tenga abiertos.</b><br /><br />
+        <p>Haga click en "<i>Elegir fichero</i>" para subir una imagen con formato JPG y luego pulse en "Subir y cambiar fondo" para realizar los cambios.</p><br />
         <!--<input name="archivo" type="file" id="imagen" accept="image/jpeg" required />-->
 
 
@@ -124,7 +125,7 @@
         opacity: 0;
         filter: alpha(opacity=0);
       }
-      </style>
+      </style><center>
       <input id="imagen" placeholder="Elige fichero..." disabled="disabled" />
       <div class="fileUpload btn btn-primary">
         <span>Elegir fichero</span>
@@ -136,7 +137,7 @@
 
 
         <br /><br />
-        <input type="button" id="wall" value="Subir y cambiar fondo" /><br />
+        <input type="button" id="wall" value="Subir y cambiar fondo" /><br /></center>
       </form>
       <!--div para visualizar mensajes-->
       <div class="messages"></div><br /><br />

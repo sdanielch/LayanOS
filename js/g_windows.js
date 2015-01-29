@@ -1,8 +1,6 @@
 function windows_content(id, contenido, url22, icono) {
-
-
  // SI NO EXISTE LA VENTANA LA CREAMOS
-  if ($("#"+id).length === 0){
+  if ($("#"+id).length === 0) {
     // Creamos el div con las propiedades
   var ventana = $('<div/>', {
     'class' : 'windows',
@@ -44,16 +42,6 @@ $("#_"+id).remove();
 $("#"+id).remove();
 }, 300);
 
-   
-  
-
-/*
-  $("#"+id).fadeOut(150);
-  $("#_"+id).remove();
-  setTimeout(function(){ $("#"+id).remove(); }, 150);
-*/
-  
-  
   });
 
   $("#"+c_ventana_t).mousedown(function(e){
@@ -141,13 +129,10 @@ $("#"+id).remove();
   case 'txt':
   $(windows).css("background", "#000");
   $('<textarea id="'+c_ventana_c+'2" style="width: 100%; height: calc(100% - 30px);"></textarea>').appendTo("#"+c_ventana_c);
- 
-$("#"+c_ventana_c+"2").load(url,function(responseTxt,statusTxt,xhr){
+  $("#"+c_ventana_c+"2").load(url,function(responseTxt,statusTxt,xhr){
       if(statusTxt=="success")
        $(this).val(responseTxt);
-
-
-$("#"+c_ventana_c+"2").kendoEditor({
+  $("#"+c_ventana_c+"2").kendoEditor({
             tools: [
                 "bold",
                 "italic",
@@ -189,22 +174,13 @@ $("#"+c_ventana_c+"2").kendoEditor({
           console.error("Error al abrir: "+contenido+" "+xhr.status+": "+xhr.statusText);
         });
 
-/*
-       
-       */
+
   break;
   default:
   $('<iframe src="'+url+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)
 
   }
-
-                        
-  
-
-
-
-
-var vc = "#"+c_ventana_t;
+  var vc = "#"+c_ventana_t;
       $( windows ).draggable({
         zIndex: 200,
         appendTo: windows,
@@ -245,6 +221,7 @@ var vc = "#"+c_ventana_t;
       $("#"+id).focus();
 
     }
+}
 
   
-}
+

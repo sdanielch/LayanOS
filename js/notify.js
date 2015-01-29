@@ -1,14 +1,17 @@
-var notificaciones = $('<div/>', {
-  'class' : 'notificaciones1'
+var NNX = $('<div/>', {
+  'id' : 'NNX'
 });
 var pace_ajax = $('<div/>', {
   'class' : 'pace_ajax'
 });
-$(notificaciones).appendTo("body");
+
+$(NNX).appendTo("body");
 $(pace_ajax).appendTo(".notificaciones1");
-$("<p style='background: #FFF;'>Cargando aplicacion...</p>").appendTo(".pace")
+  console.log("QUE MIERDA PASA")
+
 
 function notify(icono,texto,duracion) {
+  console.log("Notificación lanzada")
   var id_aleatoria = Math.floor(Math.random()*2000000000);
   var notificacion = $('<div/>', {
     'class' : 'notificacion',
@@ -25,7 +28,7 @@ function notify(icono,texto,duracion) {
   var NT = "#NT"+id_aleatoria;
   var NI = "#NI"+id_aleatoria;
   var N = "#N"+id_aleatoria;
-  $(notificacion).appendTo(".notificaciones1");
+  $(notificacion).appendTo("#NNX");
   $(NICONO).appendTo(N);
   $(NTEXTO).appendTo(N);
 
@@ -58,4 +61,12 @@ function notify(icono,texto,duracion) {
     });
 
   }, duracion);
+  return true
 }
+
+
+console.log("yeaaa");
+
+
+
+notify("alerta","hola!",3000);

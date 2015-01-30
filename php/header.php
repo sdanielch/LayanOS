@@ -25,18 +25,11 @@ paceOptions = {
   var diruser = "<?php echo $diruser; ?>";
   </script>
 
-<script src='../js/pace.min.js'></script>
-<script src='../js/jquery-2.1.1.min.js'></script>
-<script src='../js/assets.js'></script>
-<script src='../js/notify.js'></script>
-<script src='../js/jquery-ui.min.js'></script>
-<script src='../js/g_icons.js'></script>
-<script src='../js/taskbar.js'></script>
-<script src='../js/gcolors.js'></script>
-<script src='../js/g_windows.js'></script>
-<script src='../js/dash.js'></script>
-<script src='http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js'></script>
-<script src='../js/default.js'></script>
+
+<script data-name='bootstrap' src='../js/require.js'></script>
+<script>
+requirejs 
+</script>
 
  
   <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->

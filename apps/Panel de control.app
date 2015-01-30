@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../apps/Panel de control/css/css.css" media="screen" />
 
 <div style="width: 100%; height: calc(100% - 30px); background: #EFEFEF; color: #181818;">
-  <script type="text/javascript" src="../js/functions.js"></script>
+  <script type="text/javascript" src="../js/enviroment/functions.js"></script>
   <script>
   notify("error","El panel de control aún no ha sido terminado.",8000);
   </script>

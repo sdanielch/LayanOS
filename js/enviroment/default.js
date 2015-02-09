@@ -24,13 +24,20 @@ var jqxhr = $.get( "getapps.php", function(data) {
 
 setTimeout(function(){
 
-  notify("alerta","Bienvenido <strong>"+usuario+"</strong><br /><br />Como ves, el proyecto avanza a pasos agigantados ^^ ",8000);
+  notify("alerta","La carga del servidor está en <br /> <div><div class='systemload' style='width:"+systemload+"em;'></div><div style='position:relative'><div class='systemload' style='width:"+systemload1+"em;'></div> <div style='position:relative'><div class='systemload' style='width:"+systemload2+"em;'></div><div class='systemload2'>"+systemload1+"</div><div class='systemload3'>1Min:"+systemload+" - 5Min:"+systemload1+" - 15Min:"+systemload2+"</div></div>",12000);
+
+}, 500);
+
+
+setTimeout(function(){
+
+  notify("alerta",l10n.notify.notify1,8000);
 
 }, 2000);
 
 setTimeout(function(){
 
-  notify("error","Te recordamos que la aplicación aun no está lista y que puede que encuentres fallos usandola.",8000);
+  notify("error",l10n.notify.notify2,8000);
 
 }, 4000);
 

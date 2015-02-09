@@ -24,7 +24,6 @@ function windows_content(id, contenido, url22, icono) {
   $(windows).addClass( "seleccionado" );
   $(ventana).appendTo("#principal");
   $(ventana_t).appendTo(windows);
-
   var extension = contenido.substr( (contenido.lastIndexOf('.') +1) );
   var abc = contenido.split("."+extension);
   var vtitulo = abc[0];
@@ -32,7 +31,7 @@ function windows_content(id, contenido, url22, icono) {
 
 
   var cont = decodeURI(contenido);
-  $("#"+c_ventana_t).html("<img src='"+icono+"' style='width: 16px; height: 16px; position: relative; top: 0px; left: 0px; margin-right: 0px;' /><strong> "+vtitulo+"</strong> <div style='position: absolute; top: 5px; right: 45px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='position: absolute; top: 5px; right: 25px; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='position: absolute; top: 5px; right: 5px; width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' />");
+  $("#"+c_ventana_t).html("<div class='windowblur'></div><div class='windowblur2'></div><img src='"+icono+"' style='width: 16px; height: 16px; position: relative; top: 0px; left: 0px; margin-right: 0px;' /><strong style='cursor: default; position: relative;'> "+vtitulo+"</strong><div class='btns' style='position: relative; float: right; width: 60px; display: flex; top: -2px; right: -2px;' > <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' /></div>");
   // CERRAR VENTANA
   $("#"+id+id+id+id).click(function() {
 $('#'+id).addClass("trans300");
@@ -68,11 +67,44 @@ $("#"+id).remove();
 
   // MAXIMIZAR VENTANA
   $("#"+id+id+id+id+id+"i").click(function() {
-       $("#"+id).toggleClass("max-restore")
+ switch(pos_panel) {
+  case 'a':
+  $("#"+id).removeClass("max-restore2 max-restore3");
+  $("#"+id).toggleClass("max-restore");
+  break;
+  case 'b':
+  $("#"+id).removeClass("max-restore max-restore3");
+  $("#"+id).toggleClass("max-restore2");
+  break;
+  case 'c':
+  $("#"+id).removeClass("max-restore max-restore2");
+  $("#"+id).toggleClass("max-restore3");
+  break;
+  default:
+  $("#"+id).toggleClass("max-restore");
+ 
+  }
+
   });
 
   $("#"+c_ventana_t).dblclick(function() {
-    $("#"+id).toggleClass("max-restore")
+ switch(pos_panel) {
+  case 'a':
+  $("#"+id).removeClass("max-restore2 max-restore3");
+  $("#"+id).toggleClass("max-restore");
+  break;
+  case 'b':
+  $("#"+id).removeClass("max-restore max-restore3");
+  $("#"+id).toggleClass("max-restore2");
+  break;
+  case 'c':
+  $("#"+id).removeClass("max-restore max-restore2");
+  $("#"+id).toggleClass("max-restore3");
+  break;
+  default:
+  $("#"+id).toggleClass("max-restore");
+ 
+  }
   });
 
   // MINIMIZAR VENTANA
@@ -185,11 +217,14 @@ $("#"+id).remove();
         zIndex: 200,
         appendTo: windows,
         stack: ".windows",
-        cursor: "crosshair",
-        opacity: 0.8,
+        cursor: "default",
+        opacity: 1,
         handle: vc,
         containment: "document",
-        drag: function( event, ui ) { $("#"+id).removeClass("max-restore")
+        drag: function( event, ui ) { 
+          $("#"+id).removeClass("max-restore");
+          $("#"+id).removeClass("max-restore2");
+          $("#"+id).removeClass("max-restore3");
       }
 
       });

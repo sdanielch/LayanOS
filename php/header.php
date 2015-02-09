@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.blueopal.min.css" />
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <!-- LOS SIGUIENTES SCRIPTS SE DEBEN PONER EN ORDEN PARA FUNCIONAR CORRECTAMENTE, YA POR COMO ESTÁN ESCRITOS SE COMUNICAN ENTRE ELLOS -->
 
 <script>
@@ -21,12 +22,20 @@ paceOptions = {
 </script>
 
  <script type="text/javascript">
+ // Nombre de usuario
   var usuario = "<?php echo $_SESSION['usuario_nombre']; ?>";
+ // Directorio de usuario
   var diruser = "<?php echo $diruser; ?>";
+ // Preferencias de usuario 
+  var pos_panel = "<?php echo $PREF_pos_panel; ?>";
+ // Carga del sistema
+  var systemload = "<?php echo $carga[0]; ?>"
+    var systemload1 = "<?php echo $carga[1]; ?>"
+      var systemload2 = "<?php echo $carga[2]; ?>"
   </script>
 
 
-
+<script src='../langs/es-ES.js'></script>
 <script src='../js/lib/pace.min.js'></script>
 <script src='../js/lib/jquery-2.1.1.min.js'></script>
 <script src='../js/enviroment/assets.js'></script>

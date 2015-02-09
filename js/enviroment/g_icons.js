@@ -24,10 +24,11 @@ function crea_iconos (id,elemento,icono,sitio){
         var i = "#"+id2
         $("<div class='icon22'></div>").appendTo( i );
         $("<div class='icon'></div>").appendTo( i+" .icon22" );
-        $("<div class='icontext'>"+e_texto_B+"</div>").appendTo( i +" .icon22");
+        $("<div class='icontext'/>").appendTo( i +" .icon22");
+               $( i + " .icontext").text(e_texto_B);
 
         $( i ).focus(function() {
-          $( i + " .icontext").text(i_texto_A);
+        $( i + " .icontext").text(i_texto_A);
         });
         $( i ).focusout(function() {
           if ($( i ).hasClass( "app" )) {

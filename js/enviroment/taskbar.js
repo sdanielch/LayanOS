@@ -5,7 +5,7 @@ var tarea = $('<div/>', {
     'tabindex' : "-1",
     'class' : 'tarea'
   });
-  $(tarea).appendTo("#sidebar")
+  $(tarea).appendTo("#tareas")
   var rcolor = randomColor();
   $("#"+id).html("<div style='width: 100%; height: 10px; background:"+ rcolor +"; position: absolute; bottom: 0px; left: 0px; opacity: 0.8; border-radius: 10px 10px 0px 0px;'></div>");
   $("#"+id).click(function() {

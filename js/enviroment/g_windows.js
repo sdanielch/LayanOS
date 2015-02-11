@@ -1,4 +1,7 @@
-function windows_content(id, contenido, url22, icono) {
+function windows_content(id, contenido, url22, icono, akuna) {
+  if (akuna == undefined) {
+    var akuna = "";
+  }
  // SI NO EXISTE LA VENTANA LA CREAMOS
   if ($("#"+id).length === 0) {
     // Creamos el div con las propiedades
@@ -31,7 +34,7 @@ function windows_content(id, contenido, url22, icono) {
 
 
   var cont = decodeURI(contenido);
-  $("#"+c_ventana_t).html("<div class='windowblur'></div><div class='windowblur2'></div><img src='"+icono+"' style='width: 16px; height: 16px; position: relative; top: 0px; left: 0px; margin-right: 0px;' /><strong style='cursor: default; position: relative;'> "+vtitulo+"</strong><div class='btns' style='position: relative; float: right; width: 60px; display: flex; top: -2px; right: -2px;' > <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' /></div>");
+  $("#"+c_ventana_t).html("<div class='windowblur'></div><div class='windowblur2'></div><img src='"+icono+"' style='width: 16px; height: 16px; position: relative; top: 0px; left: 0px; margin-right: 0px;' /><strong class='vtitulo' style='cursor: default; position: relative;'> "+vtitulo+"</strong><div class='btns' style='position: relative; float: right; width: 60px; display: flex; top: -2px; right: -2px;' > <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' /></div>");
   // CERRAR VENTANA
   $("#"+id+id+id+id).click(function() {
 $('#'+id).addClass("trans300");
@@ -40,6 +43,10 @@ setTimeout(function(){
 $("#_"+id).remove();
 $("#"+id).remove();
 }, 300);
+var ch = sayCheese.stop();
+if (ch =! undefined) {
+sayCheese.stop();
+} 
 
   });
 
@@ -63,6 +70,9 @@ $("#"+id).remove();
           }
           return true;// to allow the browser to know that we handled it.
         });
+
+$(".tarea").removeClass("tareaonline");
+    $("#_"+id+".tarea").addClass("tareaonline");
 
 
   // MAXIMIZAR VENTANA
@@ -112,7 +122,12 @@ $("#"+id).remove();
     $("#"+id).removeClass( "seleccionado" );
         $("#"+id).addClass( "minimizado" );
         $("#"+id).addClass( "trans300" );
-        setTimeout(function(){ $("#"+id).hide(); }, 300);
+        setTimeout(function(){ 
+          $("#"+id).hide();
+          $("#_"+id+" .tarea").removeClass("tareaonline");
+
+           }, 300);
+           
   });
 
 
@@ -122,6 +137,8 @@ $("#"+id).remove();
     $(".windows").removeClass( "seleccionado" );
     $("#"+id+".windows").addClass( "seleccionado" );
     $("#"+id+".windows").zIndex( 205 );
+    $(".tarea").removeClass("tareaonline");
+    $("#_"+id+".tarea").addClass("tareaonline");
   });
 
   $(ventana_c).appendTo(windows);
@@ -133,7 +150,10 @@ $("#"+id).remove();
 
     var contenido = decodeURI(contenido);
     $("#"+id).css({'width': 600, 'height': 420});
-    url = "../home/"+usuario+"/documents/"+contenido;
+    if(akuna == undefined){
+      var akuna = "";
+    }
+    url = "../home/"+usuario+"/documents/"+akuna+contenido;
 
   // SI NO ES UNA APP
   // RECONOCIMIENTO POR EXTENSION
@@ -146,7 +166,7 @@ $("#"+id).remove();
   case 'bmp':
   $("#"+c_ventana_c).addClass("centrado");
   $(windows).css("background", "#000");
-  $('<img src="'+url+'" class="img_doc" id="'+id+'IMG'+'"/>').appendTo("#"+c_ventana_c)
+  $('<img src="'+contenido+'" class="img_doc" id="'+id+'IMG'+'"/>').appendTo("#"+c_ventana_c)
   break;
   case 'app':
   var contenido2 = encodeURI(contenido);
@@ -209,7 +229,7 @@ $("#"+id).remove();
 
   break;
   default:
-  $('<iframe src="'+url+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)
+  $('<iframe src="'+contenido+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)
 
   }
   var vc = "#"+c_ventana_t;
@@ -247,6 +267,11 @@ $("#"+id).remove();
       //$("#"+id).fadeIn(300);
       $("#"+id).focus();
 
+
+$(".windows").zIndex( 200 );
+      $("#"+id+".windows").zIndex( 205 );
+      $("#"+id).fadeIn(300);
+      $("#"+id).focus();
 
     } else {
       // SI EXISTE LA VENTANA LE DAMOS EL FOCO

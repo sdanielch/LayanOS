@@ -14,6 +14,8 @@ var tarea = $('<div/>', {
       $(".windows").removeClass( "seleccionado" );
       $("#"+windowId).addClass( "minimizado" );
       $("#"+windowId).addClass( "trans300" );
+      $("#"+id).removeClass("tareaonline");
+      $(".tarea").removeClass("tareaonline");
       setTimeout(function(){ $("#"+windowId).hide(); }, 300);
     }
     else {
@@ -27,6 +29,8 @@ var tarea = $('<div/>', {
     $("#"+windowId).zIndex( 205 );
     $(".windows").removeClass( "seleccionado" );
     $("#"+windowId).addClass( "seleccionado" );
+    $(".tarea").removeClass("tareaonline");
+     $("#"+id).addClass("tareaonline");
    }
   });
   var str2 = "#"+id

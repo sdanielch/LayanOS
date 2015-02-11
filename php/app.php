@@ -41,6 +41,8 @@ ppos_panel(pos_panel);
 <?php include('../html/sidebar.html'); ?>
 <?php include('../html/dash.html'); ?>
 <div style="margin-top: 30px;margin-left: 100px; padding: 20px; color: #DCDCDC;" id="principal">
+
+
 </div>
 </body>
 </html>

@@ -277,7 +277,7 @@ top: 0px;
 left: 0px;
 width: 100%;
 height: 100px;
-background: rgba(0,0,0,0.5) url('../img/noise.png');
+background: rgba(20,20,20,0.5) url('../img/noise.png');
 border-radius: 10px 10px 0px 0px;
 }
 
@@ -432,6 +432,11 @@ animation: windows 300ms;
   border-radius: 4px;
   position: relative;
   float: left;
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 .orb {
   background: rgba( 20,20,20,.75);
@@ -940,4 +945,12 @@ background: -o-linear-gradient(top, rgba(242,242,242,0) 0%,rgba(191,191,191,1) 1
 background: -ms-linear-gradient(top, rgba(242,242,242,0) 0%,rgba(191,191,191,1) 100%);
 background: linear-gradient(to bottom, rgba(242,242,242,0) 0%,rgba(191,191,191,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f2f2f2', endColorstr='#bfbfbf',GradientType=0 );
+}
+
+.vtitulo {
+  text-shadow: 1px 1px 1px #323232, -1px -1px 1px #323232, 0 0 2px #FFF, 0 0 4px #FFF, 0 0 6px #FFF;
+}
+
+.tareaonline {
+  background: rgba(230,230,230,0.8) !important;
 }

@@ -1,7 +1,8 @@
-function crea_iconos (id,elemento,icono,sitio){
+function crea_iconos (id,elemento,icono,sitio,directorio){
   // La funcion "a" sirve únicamente para realizar una comprobación que devolverá true o false
   // en caso de algun error en la carga.
-    function a(id,elemento,icono) {
+  console.log(directorio)
+    function a(id,elemento,icono, directorio) {
       var extension2 = elemento.substr( (elemento.lastIndexOf('.') +1) );
       // Creamos el elemento icono, indipendientemente de si es una aplicación o es un fichero
         id2 = "id_" + id;
@@ -13,6 +14,14 @@ function crea_iconos (id,elemento,icono,sitio){
         // Si el texto sobrepasa los 16 caracteres se acorta hasta seleccionar el elemento
         var ext = elemento.substr( (elemento.lastIndexOf('.') +1) ); // EXTENSION DEL FICHERO
         var i_texto_A = elemento;
+        
+        if (extension2 != "app") {
+        var guy = elemento.split("/");
+        guy = guy[guy.length -1];
+        console.log(guy);
+        var i_texto_A = guy;
+        }
+        
         var l_texto_A = i_texto_A.length
         var limite_texto_A = 16
         if (l_texto_A >= limite_texto_A ) {
@@ -38,7 +47,65 @@ function crea_iconos (id,elemento,icono,sitio){
         });
 // Y AHORA, DEPENDIENDO DE CADA CASO:
 // SI SE TRATA DE UNA APP
-      if (extension2 == "app") {
+console.log(directorio)
+if (directorio == true) {
+  var str2 = "#id_" + id + " .icon"
+   change_icon(str2,"../img/folder-generic.png");
+      $( i ).click(function() {
+       
+$("#gestor_ficheros").html("");
+//------------------------------------------------------
+
+elemento = decodeURI(elemento);
+graset = encodeURI("/");
+var ndrc = elemento.split("/");
+ndrc = ndrc[ndrc.length -1]
+  
+if(puakpuak == undefined){
+  var puakpuak = $("#gf-historial").attr("data-history");
+  if(puakpuak == undefined){
+  puakpuak = "";
+}
+}
+var gfhistorial22 = "/"+ndrc
+
+
+
+var folder25 = ndrc+graset;
+$.get( "getdocs.php", {folder:folder25}, function(data3) {
+  var data3 = JSON.parse(data3);
+  var groupname = 'Leyendo documentos:';
+  console.group( groupname );
+  var i = 0;
+  for (k in data3) {
+    console.log(k)
+    crea_iconos(i+'fichero',k,"fichero2","#gestor_ficheros",data3[k],k);
+   i++;
+  }
+   console.groupEnd();
+
+})
+.done(function() {
+  console.log("Documentos Leídos");
+})
+.fail(function() {
+  console.error( "Error al cargar los documentos." );
+})
+.always(function() {
+  console.log( "Orden correcta." );
+});
+//------------------------------------------------------
+var gfhistorial = $("#gf-historial").attr("data-history");
+if (gfhistorial == undefined){
+var gfhistorial = "";
+}
+
+$("#gf-historial").attr("data-history", gfhistorial + gfhistorial22)
+$("#gf-historial").attr("data-history-current", gfhistorial22)
+
+
+    }); 
+} else if (extension2 == "app") {
         $( i ).click(function() {
          var e22 = elemento.substr( (elemento.lastIndexOf('.') +1) );
          var abc = elemento.split("."+e22);
@@ -92,6 +159,9 @@ function ibo(extension){
   case 'wma':
   var ibo = "../img/audio.png";
   break;
+  case '':
+  var ibo = "../img/unknown.png"
+  break;
   default:
   var ibo = "../img/unknown.png";
     }
@@ -102,6 +172,7 @@ function ibo(extension){
  change_icon(str2,iconoz);
 
       $( i ).click(function() {
+        console.log(extension);
       var id_aleatoria = Math.floor(Math.random()*2000000000);
       windows_content(id_aleatoria, elemento,"../apps",iconoz);
       taskbar("_"+id_aleatoria, elemento, iconoz);
@@ -109,10 +180,11 @@ function ibo(extension){
       $("#orb").removeClass("gi");
     }); 
 }
+
 // DEVOLVEMOS TRUE SI TODO FUE CORRECTO
 return true;
 }
-if( a(id,elemento,icono) ) {
+if( a(id,elemento,icono,directorio) ) {
   console.log("Doc: "+ elemento + " OK.");
 } else {
   console.error("Doc: "+ elemento + " ERROR.");

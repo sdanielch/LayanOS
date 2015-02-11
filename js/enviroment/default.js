@@ -22,24 +22,19 @@ var jqxhr = $.get( "getapps.php", function(data) {
 
 });
 
-setTimeout(function(){
-
-  notify("alerta","La carga del servidor está en <br /> <div><div class='systemload' style='width:"+systemload+"em;'></div><div style='position:relative'><div class='systemload' style='width:"+systemload1+"em;'></div> <div style='position:relative'><div class='systemload' style='width:"+systemload2+"em;'></div><div class='systemload2'>"+systemload1+"</div><div class='systemload3'>1Min:"+systemload+" - 5Min:"+systemload1+" - 15Min:"+systemload2+"</div></div>",12000);
-
-}, 500);
 
 
 setTimeout(function(){
 
   notify("alerta",l10n.notify.notify1,8000);
 
-}, 2000);
+}, 1000);
 
 setTimeout(function(){
 
   notify("error",l10n.notify.notify2,8000);
 
-}, 4000);
+}, 2000);
 
 
 

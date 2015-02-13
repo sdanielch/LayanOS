@@ -13,7 +13,7 @@ color: #FFFFFF;
 font-family: Arial, Verdana;
 font-weight: bold;
 text-shadow: 1px 1px 2px #000;
-
+cursor:pointer;
 }
 #relojj {
 	background: #222;
@@ -22,6 +22,7 @@ width: 75px;
 border-radius: 0 0 15px 15px;
 padding-top: 3px;
 border: 1px #484848 inset;
+cursor:pointer;
 }
 </style>
 </head>
@@ -32,8 +33,7 @@ border: 1px #484848 inset;
 <td><div id='hora'></div></td>
 <td><div>:</div></td>
 <td><div id='minuto'></div></td>
-<td><div>:</div></td>
-<td><div id='segundo'></div></td>
+
 </tr>
 </table>
 <script type="text/javascript">
@@ -45,7 +45,7 @@ var minuto = tiempo.getMinutes();
 var segundo = tiempo.getSeconds();
 document.getElementById('hora').innerHTML = hora;
 document.getElementById('minuto').innerHTML = minuto;
-document.getElementById('segundo').innerHTML = segundo;
+//document.getElementById('segundo').innerHTML = segundo;
 setTimeout('Reloj()', 1000);
 str_hora = new String(hora);
 if (str_hora.length == 1) {
@@ -55,12 +55,44 @@ str_minuto = new String(minuto);
 if (str_minuto.length == 1) {
 document.getElementById('minuto').innerHTML = '0' + minuto;
 }
-str_segundo = new String(segundo);
-if (str_segundo.length == 1) {
-document.getElementById('segundo').innerHTML = '0' + segundo;
-}
+//str_segundo = new String(segundo);
+//if (str_segundo.length == 1) {
+//document.getElementById('segundo').innerHTML = '0' + segundo;
+//}
 }
 </script>
+
+
+
+
+
+
+</div>
+<style>
+#calendario {
+	position: fixed;
+	top: 50px;
+	left: 50%;
+	margin-left: -120px;
+	display: none;
+	background: rgba(0,0,0,0.8);
+	border-radius: 10px;
+	padding: 10px;
+	z-index: 300;
+}
+</style>
+<script>
+$("#relojj").on("click", function(a){
+	$("#calendario").toggle(300);
+});
+
+$(function(){
+$('#calendario').calendar();
+});
+</script>
+<div id="calendario">
+	
+
 </div>
 
 

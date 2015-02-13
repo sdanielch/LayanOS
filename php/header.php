@@ -40,6 +40,7 @@ paceOptions = {
 <script src='../js/lib/jquery-2.1.1.min.js'></script>
 <script src='../js/enviroment/assets.js'></script>
 <script src='../js/enviroment/notify.js'></script>
+<script src='../js/enviroment/calendar.js'></script>
 <script src='../js/lib/jquery-ui.min.js'></script>
 <script src='../js/enviroment/g_icons.js'></script>
 <script src='../js/enviroment/taskbar.js'></script>

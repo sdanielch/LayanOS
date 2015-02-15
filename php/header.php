@@ -5,6 +5,8 @@
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/app.css?<?php echo time(); ?>">
+<link rel="stylesheet" type="text/css" href="../css/jquery.ui.colorPicker.css">
+
 <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" />
 <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.blueopal.min.css" />
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
@@ -28,6 +30,8 @@ paceOptions = {
   var diruser = "<?php echo $diruser; ?>";
  // Preferencias de usuario 
   var pos_panel = "<?php echo $PREF_pos_panel; ?>";
+   var bg_panel = "<?php echo $PREF_BACKGROUNDPANEL; ?>";
+
  // Carga del sistema
   var systemload = "<?php echo $carga[0]; ?>"
     var systemload1 = "<?php echo $carga[1]; ?>"
@@ -47,6 +51,7 @@ paceOptions = {
 <script src='../js/enviroment/gcolors.js'></script>
 <script src='../js/enviroment/g_windows.js'></script>
 <script src='../js/enviroment/dash.js'></script>
+<script src='../js/enviroment/jquery.ui.colorPicker.min.js'></script>
 <script src='http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js'></script>
 <script src='../js/enviroment/default.js'></script>
 

@@ -8,7 +8,18 @@
  
 
   <script>
-  $(function() {
+   $(function() {
+    $('input#colorpicker').colorPicker({
+      format: 'rgba',
+      size: 100,
+       colorChange: function(e, ui) {
+       var rgba = ui.color.substr(5, (ui.color.length - 6)).replace(/\s/g, '');
+       $("#sidebar").css("background", "rgba("+rgba+")");
+      }
+});
+
+
+
  $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
  $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
  $("#tabs ul li a:nth(0)").text(l10n.controlpanel.secciones.wallpaper);
@@ -85,16 +96,18 @@ if( "a" == pos_panel ) {
 <b>Idioma del sitio</b><br />
 <label><input type="radio" class="ps_lang" name="lang" value="a" checked>Español</label><br />
 <label><input type="radio" class="ps_lang" name="lang" value="b">Inglés</label>
-<hr style="width: 100%; height: 2px; margin: 0px; background: #39f;">
+<hr style="width: 100%; height: 1px; margin: 0px; background: #484848;">
 <b>Posición de la barra de tareas</b><br/>
 <label><input type="radio" class="ps_izquierda" name="pos_panel" value="a" checked>Situar en la parte izquierda</label>
 <br>
 <label><input type="radio" class="ps_derecha" name="pos_panel" value="b">Situar en la parte derecha</label>
 <br>
 <label><input type="radio" class="ps_abajo" name="pos_panel" value="c">Situar en la parte de abajo</label>
-
-
-
+<hr style="width: 100%; height: 1px; margin: 0px; background: #484848;">
+<b>Color de fondo y transparencia de la barra de tareas</b><br />
+<center>
+<input type="text" name="colorpicker" id="colorpicker" value="RGBA" style="display: none;" />
+</center>
 
   <input type="submit" value="Guardar">
   <div id="pref_usuario_resultado"></div>
@@ -111,6 +124,7 @@ ppos_panel(pos_panel2);
 pos_panel = pos_panel2
 });
 
+
 $( "#pref_usuario" ).on("submit", function( event ) {
 event.preventDefault();
 event.stopPropagation();
@@ -125,12 +139,16 @@ $("#pref_usuario_resultado").fadeOut(200);
 var $form = $( this ),
 pos_panel2 = $form.find( "input[name='pos_panel']:checked" ).val();
 var lang2 = $( "input[name='lang']:checked" ).val();
+var colorpiker = $( "input[name='colorpicker']" ).val();
+var rgbacolorpiker = colorpiker.substr(5, (colorpiker.length - 6)).replace(/\s/g, '');
+
 $.ajax({
     type: "GET",
     url: "pref_usuarios.php",
     data: { 
       "pos_panel" : pos_panel2, 
-      "lang": lang2 }
+      "lang": lang2,
+      "backpanel" : rgbacolorpiker }
 })
 .done(function() {
   // actualizamos la variable de pos_panel

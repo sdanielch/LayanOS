@@ -33,6 +33,7 @@ $("#mdash").removeClass("mdashright mdashbottom").addClass("mdashleft");
 
 $(function(){
 ppos_panel(pos_panel);
+  $("#sidebar").css("background", "rgba("+bg_panel+")");
 });
 </script>
 </head>

@@ -6,4 +6,6 @@ $pref_usuario = mysql_query("SELECT * FROM pref_usuarios WHERE usuario ='".$_SES
 if(mysql_num_rows($pref_usuario)) { 
 $row = mysql_fetch_array($pref_usuario);
 $PREF_pos_panel = $row["pos_panel"];
+$PREF_BACKGROUNDPANEL = $row["colorpicker"];
+
 }

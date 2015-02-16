@@ -150,7 +150,7 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
   $("#"+id).addClass("t300");
   setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
  resmax(id,"true");
-
+ 
   }
   });
 

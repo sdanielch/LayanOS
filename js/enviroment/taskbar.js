@@ -2,7 +2,7 @@ function taskbar(id, nombre, icon) {
 if (/app/i.test(id) && $("#"+id).length) {
   console.log(nombre + " ya estaba abierta.")
 } else {
-
+ 
 var windowId = id.substr(1);
 var tarea = $('<div/>', {
     'id' : id,

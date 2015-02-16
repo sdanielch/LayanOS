@@ -269,6 +269,10 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
   $('<iframe src="'+contenido+'" class="iframe_doc" id="'+id+'iframe'+'"frameBorder=0></iframe>').appendTo("#"+c_ventana_c)
 
   }
+
+
+
+
   var vc = "#"+c_ventana_t;
       $( windows ).draggable({
         zIndex: 200,
@@ -283,9 +287,18 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
           $("#"+id).removeClass("max-restore2");
           $("#"+id).removeClass("max-restore3");
            resmax(id,"true");
+
+
+
            $("#"+id).mouseup(function( event) {
+
+$("#aerowindows").hide(100);
+            $("#aerowindows").removeClass("max-restore");
+            $("#aerowindows").removeClass("max-restore2");
+            $("#aerowindows").removeClass("max-restore3");
+
            var vpos = event.pageY
-           if (vpos <= 80) {
+           if (vpos <= 100) {
            
 
 
@@ -317,9 +330,46 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
            
             var vpos = event.pageY
             if (vpos <= 100) {
-            $(".topbar").css("box-shadow", "0 4px 8px #F00");
+              if ($("#aerowindows").css("display") == "none") {
+            $(".topbar").css("box-shadow", "0 4px 10px #39f");
+          }
            } else {
             $(".topbar").css("box-shadow", "0 2px 4px #000");
+           }
+
+
+            if (vpos <= 100) {
+              var ancho1 = $("#"+id).width();
+              var alto1 = $("#"+id).height();
+              var pos1 = $("#"+id).css("top");
+              var pos2 = $("#"+id).css("left");
+              $("#aerowindows").css({width: ancho1, height: alto1, top: pos1, left: pos2})
+            $("#aerowindows").show(50);
+
+
+  switch(pos_panel) {
+  case 'a':
+  if($("#aerowindows").hasClass("max-restore") == false){  $("#aerowindows").addClass("max-restore");}  
+  break;
+  case 'b':
+  if($("#aerowindows").hasClass("max-restore2") == false){  $("#aerowindows").addClass("max-restore2");}       
+  break;
+  case 'c':
+  if($("#aerowindows").hasClass("max-restore3") == false){  $("#aerowindows").addClass("max-restore3");}        
+  break;
+  default:
+  if($("#aerowindows").hasClass("max-restore") == false){  $("#aerowindows").addClass("max-restore");} 
+
+  }
+
+
+
+
+           } else {
+            $("#aerowindows").hide(100);
+            $("#aerowindows").removeClass("max-restore");
+            $("#aerowindows").removeClass("max-restore2");
+            $("#aerowindows").removeClass("max-restore3");
            }
 
       }
@@ -328,7 +378,9 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
       $( windows ).resizable({
         ghost: false,
         minWidth: 200,
-        minHeight: 150
+        minHeight: 150,
+        animate: false,
+        autoHide: true
 
       });
       //$("#"+id).hide(0);

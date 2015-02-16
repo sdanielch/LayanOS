@@ -1,6 +1,12 @@
 function taskbar(id, nombre, icon) {
 if (/app/i.test(id) && $("#"+id).length) {
   console.log(nombre + " ya estaba abierta.")
+   // SI EXISTE LA VENTANA LE DAMOS EL FOCO
+       var windowId2 = id.substr(1);
+      $(".windows").zIndex( 200 );
+      $("#"+windowId2+" .windows").zIndex( 205 );
+      $("#"+windowId2).fadeIn(300);
+      $("#"+windowId2).focus();
 } else {
  
 var windowId = id.substr(1);

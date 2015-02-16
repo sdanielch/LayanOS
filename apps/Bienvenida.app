@@ -67,6 +67,9 @@ esté abierto.
 <br /><br />
 <strong>¿Qué es la barra de tareas y cómo se usa?</strong><br />
 Si aún no la cambió de lugar, la barra de tareas es la barra que se encuentra a la izquierda y muestra el botón para acceder a los programas y
-los procesos abiertos. Esta barra es personalizable, puede cambiar el lugar e incluso la forma.
+los procesos abiertos. Esta barra es personalizable, puede cambiar la posición, color y transparencia de la barra de tareas desde el panel de control en la sección "Cuenta".
+<br /><br />
+<strong>Distintas formas para hacer lo mismo</strong><br />
+Como hay diversidad de usuarios, hemos querido desarrollar funciones que hagan sentirse cómodo en el sistema a cualquier usuario. Por ejemplo, tiene 3 formas para maximizar una ventana, doble click en su barra de títulos, un click en el botón maximizar (a la derecha de la ventana), y finalmente arrastrando la ventana al borde superior del sistema.<br /><br />Puede minimizar la ventana pulsando una vez o dos (según si tiene en primer plano la ventana) en su icono de la barra de tareas, y pulsando en el icono minimizar<br /><br />Para cerrar una ventana tiene de nuevo, 3 formas, una es pulsando en el botón cerrar de la ventana, otra es haciendo click con el botón central de su mouse sobre la barra de títulos de la ventana, y la otra es haciendo click con el botón central de su mouse en el icono correspondiente de la barra de tareas.
 </div>
 </div>

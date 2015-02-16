@@ -54,7 +54,7 @@ paceOptions = {
 <script src='../js/enviroment/jquery.ui.colorPicker.min.js'></script>
 <script src='http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js'></script>
 <script src='../js/enviroment/default.js'></script>
-
+<div id="aerowindows"></div>
 
  
   <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->

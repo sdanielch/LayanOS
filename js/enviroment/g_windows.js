@@ -292,15 +292,23 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
   switch(pos_panel) {
   case 'a':
   $("#"+id).addClass("max-restore");
+             resmax(id,"true");
+
   break;
   case 'b':
   $("#"+id).addClass("max-restore2");
+             resmax(id,"true");
+
   break;
   case 'c':
   $("#"+id).addClass("max-restore3");
+             resmax(id,"true");
+
   break;
   default:
   $("#"+id).addClass("max-restore");
+             resmax(id,"true");
+
   }
 
 

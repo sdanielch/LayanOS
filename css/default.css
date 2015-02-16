@@ -314,6 +314,13 @@ transform:scale(1.0,1.0);
 animation: windows 300ms;
 
 }
+
+.windowsnoanimation {
+  transform: none !important;
+-webkit-animation: none !important; /* Chrome, Safari, Opera */
+animation: none !important;
+}
+
 .windows:focus {
   box-shadow: 0 20px 40px #000;
 }
@@ -409,7 +416,7 @@ animation: windows 300ms;
 
   #sidebar {
     /* background:#181818 url('../php/blur_image2.php') no-repeat center top fixed; */
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.35);
 
   }
 

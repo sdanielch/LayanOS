@@ -308,30 +308,15 @@ $("#"+id+id+id+id+id+"i").addClass("restore-icon");
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             $("#"+id).addClass("t300");
   setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
             $(".topbar").css("box-shadow", "0 2px 4px #000");
            }
            });
             
-
+           
             var vpos = event.pageY
-           if (vpos <= 100) {
+            if (vpos <= 100) {
             $(".topbar").css("box-shadow", "0 4px 8px #F00");
            } else {
             $(".topbar").css("box-shadow", "0 2px 4px #000");

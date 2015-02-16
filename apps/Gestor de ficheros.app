@@ -91,4 +91,4 @@ $.get( "getdocs.php", {folder:folder}, function(data2) {
   console.log( "Orden correcta." );
 });
 </script>
-<div id="gf-historial" style="width: 100px; height: 20px; background: #F00;"></div>
+<div id="gf-historial" style="width: 100px; height: 20px; background: #F00; display: none;"></div>

@@ -34,7 +34,7 @@ function windows_content(id, contenido, url22, icono, akuna) {
 
 
   var cont = decodeURI(contenido);
-  $("#"+c_ventana_t).html("<div class='windowblur'></div><div class='windowblur2'></div><img src='"+icono+"' style='width: 16px; height: 16px; position: relative; top: 0px; left: 0px; margin-right: 0px;' /><strong class='vtitulo' style='cursor: default; position: relative;'> "+vtitulo+"</strong><div class='btns' style='position: relative; float: right; width: 60px; display: flex; top: -2px; right: -2px;' > <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' /> <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />  <div style='width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' /></div>");
+  $("#"+c_ventana_t).html("<div class='windowblur'></div><div class='windowblur2'></div><strong class='vtitulo' style='cursor: default; position: relative; left: 50px; top: -3px;'> "+vtitulo+"</strong><div class='btns' style='position: relative; float: left; width: 60px; display: flex; top: -2px; right: -2px;' > <div style='width: 19px; height: 19px;' id='"+id+id+id+id+id+"' class='vminimize' />   <div style='width: 19px; height: 19px;' id='"+id+id+id+id+"' class='vclose' /></div> <div style='position: relative; float: right; width: 19px; height: 19px;' id='"+id+id+id+id+id+"i"+"' class='vmaximize' />");
   // CERRAR VENTANA
   $("#"+id+id+id+id).click(function() {
 $('#'+id).addClass("trans300");
@@ -74,24 +74,46 @@ $("#"+id).remove();
 $(".tarea").removeClass("tareaonline");
     $("#_"+id+".tarea").addClass("tareaonline");
 
+function resmax(id,a){
+aa = $("#"+id).hasClass("max-restore");
+ab = $("#"+id).hasClass("max-restore2");
+ac = $("#"+id).hasClass("max-restore3");
+if (aa == true | ab == true | ac == true) {
+$("#"+id+id+id+id+id+"i").addClass("restore-icon");
+} else if (aa == false | ab == false | ac == false){
+  $("#"+id+id+id+id+id+"i").removeClass("restore-icon");
 
+}
+}
   // MAXIMIZAR VENTANA
   $("#"+id+id+id+id+id+"i").click(function() {
  switch(pos_panel) {
   case 'a':
   $("#"+id).removeClass("max-restore2 max-restore3");
   $("#"+id).toggleClass("max-restore");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
   break;
   case 'b':
   $("#"+id).removeClass("max-restore max-restore3");
   $("#"+id).toggleClass("max-restore2");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
   break;
   case 'c':
   $("#"+id).removeClass("max-restore max-restore2");
   $("#"+id).toggleClass("max-restore3");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
   break;
   default:
   $("#"+id).toggleClass("max-restore");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
  
   }
 
@@ -102,18 +124,33 @@ $(".tarea").removeClass("tareaonline");
   case 'a':
   $("#"+id).removeClass("max-restore2 max-restore3");
   $("#"+id).toggleClass("max-restore");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
+
   break;
   case 'b':
   $("#"+id).removeClass("max-restore max-restore3");
   $("#"+id).toggleClass("max-restore2");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
+
   break;
   case 'c':
   $("#"+id).removeClass("max-restore max-restore2");
   $("#"+id).toggleClass("max-restore3");
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+  resmax(id,"true");
+
   break;
   default:
   $("#"+id).toggleClass("max-restore");
- 
+  $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+ resmax(id,"true");
+
   }
   });
 
@@ -245,6 +282,57 @@ $(".tarea").removeClass("tareaonline");
           $("#"+id).removeClass("max-restore");
           $("#"+id).removeClass("max-restore2");
           $("#"+id).removeClass("max-restore3");
+           resmax(id,"true");
+           $("#"+id).mouseup(function( event) {
+           var vpos = event.pageY
+           if (vpos <= 80) {
+           
+
+
+  switch(pos_panel) {
+  case 'a':
+  $("#"+id).addClass("max-restore");
+  break;
+  case 'b':
+  $("#"+id).addClass("max-restore2");
+  break;
+  case 'c':
+  $("#"+id).addClass("max-restore3");
+  break;
+  default:
+  $("#"+id).addClass("max-restore");
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            $("#"+id).addClass("t300");
+  setTimeout(function(){ $("#"+id).removeClass("t300"); }, 300);
+            $(".topbar").css("box-shadow", "0 2px 4px #000");
+           }
+           });
+            
+
+            var vpos = event.pageY
+           if (vpos <= 100) {
+            $(".topbar").css("box-shadow", "0 4px 8px #F00");
+           } else {
+            $(".topbar").css("box-shadow", "0 2px 4px #000");
+           }
+
       }
 
       });

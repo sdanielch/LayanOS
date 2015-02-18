@@ -1,4 +1,9 @@
 function taskbar(id, nombre, icon) {
+ $(function() {
+    $( "#tareas" ).sortable();
+    $( "#tareas" ).disableSelection();
+  });
+
 if (/app/i.test(id) && $("#"+id).length) {
   console.log(nombre + " ya estaba abierta.")
    // SI EXISTE LA VENTANA LE DAMOS EL FOCO

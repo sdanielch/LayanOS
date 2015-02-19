@@ -1,6 +1,6 @@
 # LayanOS
 LayanOS is a Virtual Desktop for Web, it's made of with PHP, jQuery, HTML5 and CSS3.
 
-LayanOS es un escritorio virtual, compatible con la mayoría de navegadores y plataformas, su uso esta orientado al trabajo diario, contiene programas preinstalados para trabajar con documentos de ofimática, contiene también visores de documentos de imagen y/o sonido, programas de cálculo, o incluso, programas para hacer capturas con su webcam. Para instalarlo simplemente clone este repositorio y luego cree una base de datos con el nombre de layanos, importe en ella el documento "layanos.sql" y modifique php/acceso_db.php con el usuario y contraseña de su servidor MySQL, luego ha de crearse una cuenta en el escritorio virtual y entonces ya podrá empezar a usarlo.
+LayanOS is a virtual desktop , compatible with most browsers and platforms , its use is oriented to the daily work contains preinstalled to work with office documents software, document viewers also contains image and / or sound, calculation programs , or even programs to make snapshots with your webcam. To install simply clone the repository and then create a database with the name of layanos , import it the document " layanos.sql " and modify php / acceso_db.php user and password for your MySQL server, then it has to be created an account on the virtual and then it will start using desktop.
 
-Este proyecto se actualiza prácticamente todos los días, de modo que si usa GIT para descargar este proyecto procure descargar de vez en cuando el repositorio para recibir las actualizaciones. 
+This project is updated almost daily , so if you use GIT to download this project seeks download occasionally repository for updates .

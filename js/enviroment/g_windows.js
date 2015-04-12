@@ -68,7 +68,7 @@ $("#"+id).remove();
             //right Click
             break;
           }
-          return true;// to allow the browser to know that we handled it.
+          return true;
         });
 
 $(".tarea").removeClass("tareaonline");

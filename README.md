@@ -10,9 +10,10 @@ Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema o
 
 > **Caracteristicas:**
 
-> -  <i class="icon-hdd">Multiplataforma, es accesible desde cualquier ordenador.
-> - <i class="icon-file"></i>Repertorio de software, como buen escritorio que se precie, lleva incluidos programas para poder trabajar con distintos documentos, además al ser completamente online el usuario no está obligado a descargar ningun software para trabajar.
-> - <i class="icon-refresh"></i> Sincronización entre equipos 
+> -  <i style="color: #FF0000;">Yeah </i>Multiplataforma, es accesible desde cualquier ordenador.
+> - Repertorio de software, como buen escritorio que se precie, lleva incluidos programas para poder trabajar con distintos documentos, además al ser completamente online el usuario no está obligado a descargar ningun software para trabajar.
+> - Sincronización entre equipos
+> - Soporte para intranets
 
 ----------
 
@@ -22,7 +23,7 @@ Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema o
 
 Los desarrolladores implicados son: 
 [SDanielCH](https://github.com/sdanielch) (Diseñador y desarrollador) y [SiroDiaz](https://github.com/SiroDiaz) (Desarrollador)
-> Visite nuestro sitio web www.layanos.tk
+> Visite nuestro sitio web www.layanos.tk para obtener más informacion, descarga y una demostración en línea.
 
 ----------
 

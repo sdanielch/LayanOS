@@ -10,7 +10,7 @@ Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema o
 
 > **Caracteristicas:**
 
-> -  <i style="color: #FF0000;">Yeah </i>Multiplataforma, es accesible desde cualquier ordenador.
+> - Multiplataforma, es accesible desde cualquier ordenador.
 > - Repertorio de software, como buen escritorio que se precie, lleva incluidos programas para poder trabajar con distintos documentos, además al ser completamente online el usuario no está obligado a descargar ningun software para trabajar.
 > - Sincronización entre equipos
 > - Soporte para intranets
@@ -31,3 +31,4 @@ Los desarrolladores implicados son:
 
 Clone el repositorio master de LayanOS en el directorio de trabajo de Apache o su servidor web, luego vaya a su *PhpMyAdmin* y configure una nueva base de datos, importe en ella **layanos.sql** y modifique **php/acceso_db.php** con los datos de acceso al servidor y a la base de datos.
 
+<img src="http://www.layanos.tk/images/headerwall.jpg" width="100%" />

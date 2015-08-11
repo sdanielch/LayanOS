@@ -1,4 +1,4 @@
-[LayanOS](http://www.layanos.tk) [![Powered By](https://tomateotra.files.wordpress.com/2007/02/linux_azul.png)](https://www.layanos.tk) 
+#[LayanOS](http://www.layanos.tk) 
 
 **Wherever you are**
 
@@ -9,3 +9,6 @@ LayanOS is a virtual desktop , compatible with most browsers and platforms , its
 This project is updated almost daily , so if you use GIT to download this project seeks download occasionally repository for updates .
 
 More information and download in http://www.layanos.tk
+
+
+[![Powered By](https://tomateotra.files.wordpress.com/2007/02/linux_azul.png)](https://www.layanos.tk) 

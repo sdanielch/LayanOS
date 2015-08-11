@@ -18,6 +18,7 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `layanos`
+-- Asegurese de tener una base de datos para importar esta
 --
 
 -- --------------------------------------------------------

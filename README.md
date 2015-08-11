@@ -22,6 +22,7 @@ Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema o
 
 Los desarrolladores implicados son: 
 [SDanielCH](https://github.com/sdanielch) (Diseñador y desarrollador) y [SiroDiaz](https://github.com/SiroDiaz) (Desarrollador)
+> Visite nuestro sitio web www.layanos.tk
 
 ----------
 

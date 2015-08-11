@@ -1,14 +1,33 @@
-#[LayanOS](http://www.layanos.tk) 
+#**LayanOS** -- *Wherever you are*
 
-**Wherever you are**
+----------
+Bienvenido al repositorio en Github de **LayanOS**[^stackedit]. Le presentamos, un sistema operativo embedido en el navegador corriendo sobre cualquier servidor. 
 
-LayanOS is a Virtual Desktop for Web, it's made of with PHP, jQuery, HTML5 and CSS3.
-
-LayanOS is a virtual desktop , compatible with most browsers and platforms , its use is oriented to the daily work contains preinstalled to work with office documents software, document viewers also contains image and / or sound, calculation programs , or even programs to make snapshots with your webcam. To install simply clone the repository and then create a database with the name of layanos , import it the document " layanos.sql " and modify php / acceso_db.php user and password for your MySQL server, then it has to be created an account on the virtual and then it will start using desktop.
-
-This project is updated almost daily , so if you use GIT to download this project seeks download occasionally repository for updates .
-
-More information and download in http://www.layanos.tk
+----------
 
 
-[![Powered By](https://tomateotra.files.wordpress.com/2007/02/linux_azul.png)](https://www.layanos.tk) 
+### Qué es y para que se usa
+-------------
+*LayanOS* es un completo escritorio web que incluye:
+
+> **Caracteristicas:**
+
+> -  <i class="icon-hdd">Multiplataforma, es accesible desde cualquier ordenador.
+> - <i class="icon-file"></i>Repertorio de software, como buen escritorio que se precie, lleva incluidos programas para poder trabajar con distintos documentos, además al ser completamente online el usuario no está obligado a descargar ningun software para trabajar.
+> - <i class="icon-refresh"></i> Sincronización entre equipos 
+
+----------
+
+### Soporte y mantenimiento
+
+[LayanOS](http://www.layanos.tk/) está mantenido por Sergio Daniel Calvo Hidalgo. 
+
+Los desarrolladores implicados son: 
+[SDanielCH](https://github.com/sdanielch) (Diseñador y desarrollador) y [SiroDiaz](https://github.com/SiroDiaz) (Desarrollador)
+
+----------
+
+### Como instalar **LayanOS**
+
+Clone el repositorio master de LayanOS en el directorio de trabajo de Apache o su servidor web, luego vaya a su *PhpMyAdmin* y configure una nueva base de datos, importe en ella **layanos.sql** y modifique **php/acceso_db.php** con los datos de acceso al servidor y a la base de datos.
+

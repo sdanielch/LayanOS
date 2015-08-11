@@ -31,6 +31,8 @@ Los desarrolladores implicados son:
 
 Clone el repositorio master de LayanOS en el directorio de trabajo de Apache o su servidor web, luego vaya a su *PhpMyAdmin* y configure una nueva base de datos, importe en ella **layanos.sql** y modifique **php/acceso_db.php** con los datos de acceso al servidor y a la base de datos.
 
+AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
+
 
 <img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr2.jpg" width="100%" />
 <img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr3.jpg" width="100%" />

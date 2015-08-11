@@ -1,14 +1,11 @@
 #**[LayanOS](http://www.layanos.tk)**  *Wherever you are*
 
-----------
+
 Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema operativo embedido en el navegador corriendo sobre cualquier servidor. 
 
 
-
-
-
 ### Qué es y para que se usa
-----------
+
 *LayanOS* es un completo escritorio web que incluye:
 
 > **Caracteristicas:**

@@ -1,7 +1,7 @@
 #**LayanOS** -- *Wherever you are*
 
 ----------
-Bienvenido al repositorio en Github de **LayanOS**[^stackedit]. Le presentamos, un sistema operativo embedido en el navegador corriendo sobre cualquier servidor. 
+Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema operativo embedido en el navegador corriendo sobre cualquier servidor. 
 
 ----------
 

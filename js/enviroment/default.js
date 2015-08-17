@@ -1,4 +1,4 @@
-console.info("Fichero de Scripts cargado.")
+console.info("Fichero de Scripts cargado.");
 $.ajaxSetup({ cache:false });
 console.log("Bienvenido: "+usuario)
 if (diruser === "true") {

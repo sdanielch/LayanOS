@@ -9,6 +9,15 @@
   <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <script src='../js/lib/jquery-2.1.4.min.js'></script>
+<script type="text/javascript">
+    //Iniciamos JQuery
+    $(function(){
+        console.log("cargado JQUERY");
+        $(".submit").prepend("<i class=\"fa fa-space-shuttle\" style=\" float: left; \"> </i> ")
+    });
+</script>
 
 	<title>LayanOS | Ventana de acceso </title>
 </head>
@@ -51,7 +60,7 @@
     <input type="text" name="usuario_nombre" placeholder="Usuario" style="background-image: url('img/user_24.png') no-repeat right top;" required />
     <input type="password" name="usuario_clave" placeholder="Contraseña" required />
 
-    <input type="submit" name="enviar" value="Ingresar" />
+      <button type="submit" name="enviar" class="submit"> INGRESAR EN LA APP</button>
   </form>
 <br /><center>
   <div style="position: absolute; bottom: 0px; left: 0px; width: 100%; padding: 10px; box-sizing: border-box;">

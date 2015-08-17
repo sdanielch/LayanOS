@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/css/default.css?<?php echo time(); ?>" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/app.css?<?php echo time(); ?>">
 <link rel="stylesheet" type="text/css" href="../css/jquery.ui.colorPicker.css">
 
@@ -41,7 +41,7 @@ paceOptions = {
 
 <script src='../langs/es-ES.js'></script>
 <script src='../js/lib/pace.min.js'></script>
-<script src='../js/lib/jquery-2.1.1.min.js'></script>
+<script src='../js/lib/jquery-2.1.4.min.js'></script>
 <script src='../js/enviroment/assets.js'></script>
 <script src='../js/enviroment/notify.js'></script>
 <script src='../js/enviroment/calendar.js'></script>

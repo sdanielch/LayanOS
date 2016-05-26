@@ -39,3 +39,4 @@ AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
 - Soporte para PHP7
 - Conexión de la base de datos en MySQLi
 - Mayor estabilidad
+- Menor consumo de recursos

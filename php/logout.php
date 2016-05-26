@@ -4,8 +4,11 @@
     // comprobamos que se haya iniciado la sesión
     if(isset($_SESSION['usuario_nombre'])) {
         session_destroy();
-         echo '<meta http-equiv="Refresh" content="1;url=http://www.mysteryshopperesp.es/AREACLIENTE">';
+        header("Location: ../index.php");
+		exit();
     }else {
         echo "Operación incorrecta.";
+        header("Location: ../index.php");
+		exit();
     }
 ?>

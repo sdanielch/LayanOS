@@ -19,38 +19,13 @@
     });
 </script>
 
-	<title>El cliente misterioso | Ventana de acceso </title>
+	<title>LayanOS | Ventana de acceso </title>
 </head>
 <body>
 
 
-  <div id="volver_atras">
-    <a href="http://www.mysteryshopperesp.es/"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-</a><br />Volver a<br /><span style="font-size: 11px;">El Cliente Misterioso</span>
-  </div>
+
   <style>
-  #volver_atras {
-  position: fixed;
-  top: 30px; left: 30px;
-  z-index: 1200;
-  text-align: center;
-  color: #FFF;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
-  font-family: Arial;
-  background: rgba(0,0,0,0.40);
-  padding: 20px;
-  border-radius: 150px;
-}
- #volver_atras a {
-    font-size: 100px;
-    color: #EFEFEF;
-    margin-left: 30px;
- }
-  #volver_atras a:hover {
-    font-size: 100px;
-    color: #FFFFFF;
-    margin-left: 30px;
- }
 
 body {
   padding: 0px;
@@ -116,7 +91,9 @@ Credits: LayanOS. Web Desktop developed and designed by <a href="http://www.face
 
 
 <center>
-  <img src="../CMfinal1.png" style="width: 128px;" />
+<div style="font-size: 128px; color: #BCBCBC;">
+  <i class="fa fa-globe" aria-hidden="true"></i>
+</div>
 </center>
   <form action="php/comprobar.php" method="post" >
     <input type="text" name="usuario_nombre" placeholder="Usuario" style="background-image: url('img/user_24.png') no-repeat right top;" required readonly onfocus="this.removeAttribute('readonly');" />

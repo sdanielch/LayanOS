@@ -15,7 +15,7 @@ if ($database->has("usuarios", [
 ]))
 {
     echo "Datos de acceso correctos...";
-    echo '<meta http-equiv="Refresh" content="1;url=http://www.mysteryshopperesp.es/AREACLIENTE">';
+    
     $userID = $database->get("usuarios", "usuario_id", [
     "usuario_nombre" => $usuario_nombre
 ]);
@@ -23,6 +23,8 @@ if ($database->has("usuarios", [
      $_SESSION['usuario_nombre'] = $usuario_nombre; 
      // echo "Datos en sesión";
      // header("Location: ../index.php");
+     header("Location: ../index.php");
+        exit();
 
 } else {
     echo "Error, <a href='acceso.php'>Reintentar</a>";

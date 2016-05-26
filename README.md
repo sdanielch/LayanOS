@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-#**[LayanOS 2.0.1](http://www.layanos.tk)**  *Wherever you are*
-=======
-#**[LayanOS 2](http://www.layanos.tk)**  *Wherever you are*
->>>>>>> 292b7b5909259899b0f1fddffc3207ae67f0905c
 
+#**[LayanOS 2.0.1](http://www.layanos.tk)**  *Wherever you 
 
 Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema operativo embedido en el navegador corriendo sobre cualquier servidor. 
-<img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr1.jpg" width="100%" />
+
 
 ### Qué es y para que se usa
 
@@ -37,9 +33,6 @@ Clone el repositorio master de LayanOS en el directorio de trabajo de Apache o s
 
 AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
 
-
-<img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr2.jpg" width="100%" />
-<img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr3.jpg" width="100%" />
 
 
 Últimos cambios:

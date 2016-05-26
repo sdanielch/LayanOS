@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 $usuario_nombre = $_SESSION['usuario_nombre'];
 include('acceso_db.php'); // incluímos los datos de acceso a la BD
 $PREF_pos_panel = $database->get("pref_usuarios", "pos_panel", [

@@ -4,7 +4,6 @@ session_start();
 $where_is_it = '../home/'.$_SESSION['usuario_nombre'].'/config/';
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
 {
-
   //obtenemos el archivo a subir
   $file = $_FILES['archivo']['name'];
  if ($file) {
@@ -14,7 +13,6 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
   mkdir("$where_is_it", 0777);
   unlink($where_is_it.'wallpaper.jpg');
   unlink($where_is_it.'wallpaper_blur.jpg');
-
   //comprobamos si el archivo ha subido
   if ($file && move_uploaded_file($_FILES['archivo']['tmp_name'],"$where_is_it".'wallpaper.jpg'))
   {

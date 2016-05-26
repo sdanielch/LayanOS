@@ -1,13 +1,73 @@
-<link rel="stylesheet" type="text/css" href="../apps/Panel de control/css/css.css" media="screen" />
+<script>
+   $(function() {
+    function hidesec() {
+    $("#pc-seccion0").hide();
+    $("#pc-seccion1").hide();
+    $("#pc-seccion2").hide();
+    $("#pc-seccion3").hide();
+    $("#pc-seccion4").hide();
+    $("#pc-seccion5").hide();
+    $("#pc-seccion6").hide();
+    $("#pc-seccion7").hide();
+    }
+    hidesec();
+    $("#pc-seccion0").fadeIn(800);
+    $("#menu-pref span").click(function(){
+     var jack = $(this).text();
+     if (jack == "Inicio") {
+    hidesec();
+        $("#pc-seccion0").fadeIn(400);
 
-<div style="width: 100%; height: calc(100% - 30px); background: #EFEFEF; color: #181818;">
-  <script type="text/javascript" src="../js/enviroment/functions.js"></script>
-  <script>
-  notify("error",l10n.controlpanel.alert,8000);
-  </script>
- 
+     }
 
-  <script>
+     if (jack == "Cambiar diseño") {
+hidesec();
+    $("#pc-seccion1").fadeIn(400);
+
+     }
+
+     if (jack == "Cambiar fondo") {
+hidesec();
+    $("#pc-seccion2").fadeIn(400);
+
+     }
+
+
+    });
+
+   });
+</script>
+<style>
+  #menu-pref {
+      position: absolute; top: 0; left: 0; bottom: 30px;
+      box-sizing: border-box; width: 180px;
+      background: #0D47A1; color: #FFF; z-index: 1800;
+      margin: auto; padding: 10px;
+    }
+  #menu-pref span {
+    position: relative;
+    display: inline-block;
+    margin: 2px;
+    width: 150px;
+    padding: 10px;
+    background: #39f;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+  }
+</style>
+<div id="menu-pref">
+<span>Inicio</span>
+<span>Cambiar diseño</span>
+<span>Cambiar fondo</span>
+</div>
+<div style="position: absolute; top: 0; left: 180px; right: 0; bottom: 30px; background: #FFF; color: #181818; overflow: auto; box-sizing: border-box; padding: 10px;">
+<div id="pc-seccion0">
+  Bienvenido al panel de control <span></span> <script>$("#pc-seccion0 span").append(usuario);</script>, puede escoger configurar su cuenta desde las diferentes opciones del panel lateral izquierdo.
+
+</div>
+<div id="pc-seccion1">
+<script type="text/javascript" src="../js/enviroment/functions.js"></script>
+<script>
    $(function() {
     $('input#colorpicker').colorPicker({
       format: 'rgba',
@@ -18,71 +78,6 @@
       }
 });
 
-
-
- $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
- $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
- $("#tabs ul li a:nth(0)").text(l10n.controlpanel.secciones.wallpaper);
- $("#tabs ul li a:nth(1)").text(l10n.controlpanel.secciones.premium);
- $("#tabs ul li a:nth(2)").text(l10n.controlpanel.secciones.bugs);
- $("#tabs ul li a:nth(3)").text(l10n.controlpanel.secciones.account);
- $("#tabs-1 b:nth(0)").text(l10n.controlpanel.wallpaper.texto1);
- $("#tabs-1 p:nth(0)").text(l10n.controlpanel.wallpaper.texto2);
- $("#imagen").attr("placeholder", l10n.controlpanel.wallpaper.campo1);
- $("#tabs-1 span:nth(0)").text(l10n.controlpanel.wallpaper.campo2);
- $("#wall").attr("value", l10n.controlpanel.wallpaper.campo3);
-  });
-  </script>
-  
-
-<body>
-<div style="width: 100%; height: 40px; background: #181818 url('../img/bnoise.png'); border-top: 1px rgba(0,0,0,0.2) solid;">
-  <div type="button" class="btopbar fa fa-chevron-left" style="font-size: 20px;"></div>
-  <div type="button" class="btopbar fa fa-chevron-right" style="font-size: 20px;"></div>
-  <div type="button" class="btopbar fa fa-refresh" style="font-size: 20px;"></div>
-  <div type="button" class="btopbar fa fa-cog" style="font-size: 20px; float:right"></div>
-
-</div>
-
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1"></a></li>
-      <li><a href="#tabs-2"></a></li>
-      <li><a href="#tabs-2"></a></li>
-      <li><a href="#tabs-3"></a></li>
-    </ul>
-    <div id="tabs-1" style="overflow: auto;">
-
-      <form enctype="multipart/form-data" class="formulario">
-      <b></b>
-      <br /><br />
-        <p></p>
-        <br />
-<script>document.getElementById("uploadBtn").onchange = function () {
-  document.getElementById("imagen").value = this.value;
-
-};</script>
-     <center>
-      <input id="imagen" placeholder="" disabled="disabled" />
-      <div class="fileUpload btn btn-primary">
-        <span></span>
-        <input name="archivo" id="uploadBtn" type="file" accept="image/jpeg" class="upload" />
-      </div>
-
-
-        <br /><br />
-        <input type="button" id="wall" value="" /><br /></center>
-      </form>
-      <!--div para visualizar mensajes-->
-      <div class="messages"></div><br /><br />
-      <!--div para visualizar en el caso de imagen-->
-      <div class="showImage"></div>
-    </div>
-    <div id="tabs-2" style="overflow: auto;">
-     <!-- Some text -->
-    </div>
-    <div id="tabs-3" style="overflow: auto;">
-<script>
 if( "a" == pos_panel ) {
     $('input:radio[name=pos_panel]:nth(0)').attr('checked',true);
 } else if( "b" == pos_panel ) {
@@ -90,7 +85,8 @@ if( "a" == pos_panel ) {
 } else if( "c" == pos_panel ) {
     $('input:radio[name=pos_panel]:nth(2)').attr('checked',true);
 }
-
+ 
+});
 </script>
 <form id="pref_usuario">
 <b>Idioma del sitio</b><br />
@@ -108,23 +104,16 @@ if( "a" == pos_panel ) {
 <center>
 <input type="text" name="colorpicker" id="colorpicker" value="RGBA" style="display: none;" />
 </center>
-
-  <input type="submit" value="Guardar">
-  <div id="pref_usuario_resultado"></div>
+<input type="submit" value="Guardar">
+<div id="pref_usuario_resultado"></div>
 </form>
-
-
-
-
-      <script>
+<script>
 $("input[name='pos_panel']").change(function(a){
 var $form = $( "#pref_usuario" ),
 pos_panel2 = $form.find( "input[name='pos_panel']:checked" ).val();
 ppos_panel(pos_panel2);
 pos_panel = pos_panel2
 });
-
-
 $( "#pref_usuario" ).on("submit", function( event ) {
 event.preventDefault();
 event.stopPropagation();
@@ -141,7 +130,6 @@ pos_panel2 = $form.find( "input[name='pos_panel']:checked" ).val();
 var lang2 = $( "input[name='lang']:checked" ).val();
 var colorpiker = $( "input[name='colorpicker']" ).val();
 var rgbacolorpiker = colorpiker.substr(5, (colorpiker.length - 6)).replace(/\s/g, '');
-
 $.ajax({
     type: "GET",
     url: "pref_usuarios.php",
@@ -163,13 +151,67 @@ $.ajax({
 .always(function() {
   console.log( "La orden fue ejecutada." );
 });
-  
 });
 </script>
-      </p>
-    </div>
-  </div>
+</div>
 
 
+<div id="pc-seccion2">
+
+
+<form enctype="multipart/form-data" class="formulario">
+<script>document.getElementById("uploadBtn").onchange = function () {
+  document.getElementById("imagen").value = this.value;
+  console.log(this.value);
+$("#showImage2").append("<img src='"+this.value+"' width='300px' />")
+};</script>
+     <center>
+
+        <div class="showImage2"></div>
+
+      <input id="imagen" placeholder="" disabled="disabled" style="display: none;" />
+      <div class="fileUpload btn btn-primary">
+        <input name="archivo" id="uploadBtn" type="file" accept="image/jpeg" class="upload" />
+      </div>
+
+<br />
+        <input type="button" id="wall" value="SUBIR IMAGEN" /><br /></center>
+      </form>
+      <!--div para visualizar mensajes-->
+      <div class="messages"></div><br /><br />
+      <!--div para visualizar en el caso de imagen-->
+      <div class="showImage"></div>
+
+
+
+
+
+
+
+<script>
+$(function() {
+ 
+});
+</script> 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>

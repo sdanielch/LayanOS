@@ -41,8 +41,4 @@ $(function(){
 console.log("RECONFIGURANDO...")
 
 
-setTimeout(function(){
-
-$("#id_2").click();
-}, 2000);
 });

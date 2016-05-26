@@ -4,10 +4,10 @@ require_once 'medoo.php';
 
 $database = new medoo([
     'database_type' => 'mysql',
-    'database_name' => 'mysterys_layanos',
+    'database_name' => 'layanos',
     'server' => 'localhost',
-    'username' => 'mysterys_layanos',
-    'password' => 'h5gg6s23',
+    'username' => 'layanos',
+    'password' => 'layanos',
     'charset' => 'utf8'
 ]);
 ?>

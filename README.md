@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #**[LayanOS 2.0.1](http://www.layanos.tk)**  *Wherever you are*
+=======
+#**[LayanOS 2](http://www.layanos.tk)**  *Wherever you are*
+>>>>>>> 292b7b5909259899b0f1fddffc3207ae67f0905c
 
 
 Bienvenido al repositorio en Github de **LayanOS**. Le presentamos, un sistema operativo embedido en el navegador corriendo sobre cualquier servidor. 

@@ -42,7 +42,7 @@ AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
 - Menor consumo de recursos
 - Soporte para WebCam
 
-### USUARIO Y CONTRASEÑA POR DEFECTO
+### Usuario y contraseña por defecto 
 
 **USER**: admin
 **PASS**: admin

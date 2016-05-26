@@ -40,3 +40,4 @@ AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
 - Conexión de la base de datos en MySQLi
 - Mayor estabilidad
 - Menor consumo de recursos
+- Soporte para WebCam

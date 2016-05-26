@@ -41,3 +41,8 @@ AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
 - Mayor estabilidad
 - Menor consumo de recursos
 - Soporte para WebCam
+
+### USUARIO Y CONTRASEÑA POR DEFECTO
+
+**USER**: admin
+**PASS**: admin

@@ -36,3 +36,9 @@ AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
 
 <img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr2.jpg" width="100%" />
 <img src="https://raw.githubusercontent.com/sdanielch/LayanOS/master/img/fr3.jpg" width="100%" />
+
+
+Últimos cambios:
+- Soporte para PHP7
+- Conexión de la base de datos en MySQLi
+- Mayor estabilidad

@@ -1,62 +1,78 @@
- <?php
-    session_start();
-    include('acceso_db.php'); // incluímos los datos de acceso a la BD
-    // comprobamos que se haya iniciado la sesión
-    if(isset($_SESSION['usuario_nombre'])) {
-    include('home.php'); 
-    include('load_pref.php');
-    $carga = sys_getloadavg();
-?>
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
-<?php require('header.php');?>	
-<script>
-function ppos_panel(valor){
-if (valor == "a") { 
-$("#sidebar").removeClass("sidebar-right sidebarbottom").addClass("sidebar-left");
-$("#mdash").removeClass("mdashright mdashbottom").addClass("mdashleft");
- }
-else if (valor == "b") {
-$("#sidebar").removeClass("sidebar-left sidebarbottom").addClass("sidebar-right");
-$("#mdash").removeClass("mdashleft mdashbottom").addClass("mdashright");
+<meta charset="utf-8">
+<?php
+require_once 'database.php';
+session_start();
+if (isset($_SESSION['usuario'])) {
+// SESION INICIADA
+// Preparamos el perfil si no tuviera ya uno creado...
+function makeDir($path)
+{
+     $ret = mkdir($path, 0777, true); // use @mkdir if you want to suppress warnings/errors
+     return $ret === true || is_dir($path);
 }
-else if (valor == "c") {
-$("#sidebar").removeClass("sidebar-left sidebar-right").addClass("sidebarbottom");
-$("#mdash").removeClass("mdashleft mdashright").addClass("mdashbottom");
+// Creamos (si es que no lo hay, un directorio personal para el usuario)
+$comprobando_directorio = makeDir("../users/".$_SESSION['usuario']);
+if ($comprobando_directorio == true) {
+  echo "<script>console.log('Se ha creado un nuevo directorio para el usuario ".$_SESSION['usuario']."')</script>";
+} else {
+  echo "<script>console.log('Ya existe un directorio para el usuario ".$_SESSION['usuario']."')</script>";
 }
-else { 
-$("#sidebar").addClass("sidebar-left"); // Configuración por defecto
-$("#mdash").removeClass("mdashright mdashbottom").addClass("mdashleft");
+// Damos los permisos de escritura y lectura al servidor
+function chmod_r($path) {
+    $dir = new DirectoryIterator($path);
+    foreach ($dir as $item) {
+        chmod($item->getPathname(), 0777);
+        if ($item->isDir() && !$item->isDot()) {
+            chmod_r($item->getPathname());
+        }
+    }
 }
-}
-
-$(function(){
-ppos_panel(pos_panel);
-  $("#sidebar").css("background", "rgba("+bg_panel+")");
-});
-</script>
+chmod_r("../users/".$_SESSION['usuario']);
+?>
+<title>LayanOS - Wherever you are</title>
+<link rel="stylesheet" href="../css/resetcss.css" />
+<link rel="stylesheet" href="../css/font-awesome.min.css" />
+<link rel="stylesheet" href="../css/jquery-ui.min.css" />
+<link rel="stylesheet" href="../css/jquery-ui.theme.min.css" />
+<link rel="stylesheet" href="../css/app-style.css" />
+<?php echo "<script>var usuario = '".$_SESSION['usuario']."';</script>"; ?>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="../js/sha512.js"></script>
+<script type="text/javascript" src="../js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="../js/jquery.wait.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/new_task.js"></script>
+<script type="text/javascript" src="../js/new_window.js"></script>
+<script type="text/javascript" src="../js/app-scripts.js"></script>
 </head>
 <body>
-<?php include('../html/topbar.html'); ?>
-<?php include('../html/sidebar.html'); ?>
-<?php include('../html/dash.html'); ?>
-<div style="margin-top: 30px;margin-left: 100px; padding: 20px; color: #DCDCDC;" id="principal">
-
+<div id="menubar">
+<a href="logout.php">Cerrar sesión</a>
+</div>
+<div id="taskbar">
+  <div class="item-taskbar" name="menu" id="menu-taskbar"></div>
 
 </div>
+<div id="panel-taskbar">
+<div id="apps1"></div>
+</div>
+<div id="desktop"></div>
+
+
+<div id="cc">LayanOS</div>
 </body>
 </html>
-
-<?php } else { ?>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>LayanOS | Zona reservada a usuarios</title>
-  <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
+<?php
+} else {
+  // SESION NO INICIADA
+?>
+<meta http-equiv="refresh" content="3;url=./../">
+No has iniciado sesión, redirigiendo a la página principal... pincha <a href="./../">aquí</a> si tu navegador no lo hace automáticamente.
 </head>
-<body>
-      <div id='login'>Está usted accediendo a una zona reservada para usuarios registrados, para iniciar sesión o registrar una cuenta nueva, <a href='../index.php'>pinche aquí</a>.
-      </body>
-      </html>
-<?php } ?>
+</html>
+<?php
+}
+?>

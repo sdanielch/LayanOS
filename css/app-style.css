@@ -1,0 +1,284 @@
+body {
+	background: #282828; color: #181818; font-family: Arial; font-size: 16px;
+	/*La imágen de fondo se aplica desde JavaScript para los fondos personalizados */
+}
+/* Créditos de la aplicación */
+#cc {
+	position: fixed; right: 20px; bottom: 20px;
+	font-size: 4vw; color: #EFEFEF; text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+}
+/* Estilo del panel superior */
+#menubar {
+	position: fixed; top: 0; left: 0; right: 0; height: 30px;
+	background: rgba(20,20,20,0.8); color: #EFEFEF; box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+#menubar a, #menubar a:link{
+	text-decoration: none;
+	color: #888; margin-right: 10px;
+}
+#menubar a:hover {
+	color: #EFEFEF;
+}
+object:focus {
+    outline: none;
+}
+/* Le damos forma a la barra de tareas inicial */
+#taskbar {
+	position: fixed; top: 30px; left: 0; bottom: 0; width: 72px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	overflow: auto;
+	background: rgba(0,0,0,0.9);
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.9)), color-stop(89%, rgba(23,23,23,0.72)), color-stop(100%, rgba(0,0,0,0.7)));
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
+	background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+}
+/* Forma de los elementos que hay dentro de la barra de tareas (procesos)*/
+.item-taskbar {
+position: relative;
+box-sizing: border-box;
+width: 64px;
+min-height: 64px;
+background: rgba(20,20,20,0.9); /* Color reemplazado por JavaScript, se pone aqui para pruebas */
+margin: 4px;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+flex-direction: column;
+border-radius: 4px;
+border: 1px rgba(150,150,150,0.75) groove;
+cursor: pointer;
+transition: all 200ms ease-out;
+	text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+	color: #EFEFEF;
+	font-size: 12px;
+	text-align: center;
+	-webkit-background-size: 100% 100%;
+ -moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+.item-taskbar:hover{
+	-webkit-filter: brightness(1.2);
+	-moz-filter: brightness(1.2);
+	-o-filter: brightness(1.2);
+	filter: brightness(1.2);
+}
+.item-taskbar:active{
+	-webkit-filter: brightness(1.6);
+	-moz-filter: brightness(1.6);
+	-o-filter: brightness(1.6);
+	filter: brightness(1.6);
+}
+#menu-taskbar {
+	background: #222;
+	background: rgba(20,20,20,0.9) url('../img/start.png') no-repeat center center;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+	border-radius: 256px;
+}
+#panel-taskbar {
+	position: fixed; top: 30px; left: 72px;
+	width: 75%; height: 80%; background: rgba(20,20,20,0.8) /* Color reemplazado por JavaScript*/;
+	border-radius: 0 4px 16px 0; display: none;
+	animation: daylog25 400ms ease-in-out;
+	animation-fill-mode: forwards;
+	z-index: 1200;
+
+}
+@keyframes daylog25 {
+	0% { opacity: 0.4; width: 75%;}
+	100% { opacity: 1;  width: 75%;}
+}
+
+#desktop {
+	position: absolute; top: 26px; left: 72px; right: 0; bottom: 0;
+}
+#apps1 {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+.div_icono {
+	position: relative;
+width: 100%;
+height: 96px;
+}
+.icono {
+	position: relative;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 96px;
+	min-height: 72px;
+	text-align: center;
+	margin: 20px;
+	text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+	color: #FFF;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 12px;
+	background: rgba(240,240,240,0.2);
+}
+
+.window {
+position: absolute;
+top: 100px; left: 100px;
+min-width: 400px; min-height: 300px;
+background: rgba(0,0,0,0.8); z-index: auto;
+border: 1px rgba(0,0,0,0.75) solid;
+}
+.window_a {
+	animation: daylog255 300ms ease-out;
+	animation-fill-mode: forwards;
+}
+@keyframes daylog255 {
+	0% { opacity: 0.2;  transform: scale(0.6, 0.6);}
+	100% { opacity: 1;  transform: scale(1, 1);}
+}
+.animateclosewindow {
+	animation: daylog2555 300ms ease-out;
+	animation-fill-mode: forwards;
+	}
+	@keyframes daylog2555 {
+		0% { opacity: 1;  transform: scale(1, 1);}
+		100% { opacity: 0;  transform: scale(0.8, 0.8);}
+	}
+/* Barra de títulos de las aplicaciones */
+.bartip {
+	position: absolute; top: 0; left: 0; right: 0;  min-height:  30px; background: rgba(56, 60, 74, 0.999); color: #EFEFEF;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	/* flex-direction: column; */
+}
+.titlebar {
+	margin-left: 20px;
+}
+/* Contenido de las ventanas */
+.ajaxload {
+	position: absolute; top: 30px; left: 0; right: 0; background: transparent; color: #EFEFEF;
+}
+
+/* BOTONES DE LA BARRA DE TITULO */
+.bwindow {
+	width: 24px; height: 24px;
+	-webkit-background-size: 100% 100%;
+ -moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+	position: relative;
+	display: inline-block;
+}
+.bclose {	background: url('../img/window-buttons/close.svg') no-repeat center center;}
+.uclose {	background: url('../img/window-buttons/close_unfocused.svg') no-repeat center center;}
+.bclose:hover {	background: url('../img/window-buttons/close_prelight.svg') no-repeat center center;}
+.bclose:active {	background: url('../img/window-buttons/close_pressed.svg') no-repeat center center;}
+
+.bminimize {	background: url('../img/window-buttons/minimize.svg') no-repeat center center;}
+.uminimize {	background: url('../img/window-buttons/minimize_unfocused.svg') no-repeat center center;}
+.bminimize:hover {	background: url('../img/window-buttons/minimize_prelight.svg') no-repeat center center;}
+.bminimize:active {	background: url('../img/window-buttons/minimize_pressed.svg') no-repeat center center;}
+
+.bmaximize {	background: url('../img/window-buttons/maximize.svg') no-repeat center center;}
+.umaximize {	background: url('../img/window-buttons/maximize_unfocused.svg') no-repeat center center;}
+.bmaximize:hover {	background: url('../img/window-buttons/maximize_prelight.svg') no-repeat center center;}
+.bmaximize:active {	background: url('../img/window-buttons/maximize_pressed.svg') no-repeat center center;}
+
+.tshadow {
+	width: 100%;
+	padding: 4px;
+	box-sizing: border-box;
+	background: rgba(255,255,255,0.4);
+	text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+}
+#browser_folder {
+	position: absolute; top: 40px; left: 0; right: 0; bottom: 0; overflow: auto;
+	background: #FFF;
+}
+.browser_icon {
+	width: 96px;
+	height: 120px;
+	margin: 4px;
+	background: #39f;
+	display: inline-flex;
+	align-items: flex-end;
+	justify-content: center;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 6px;
+	box-sizing: border-box;
+	font-size: 12px;
+	text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+}
+.file {
+	background: rgba(20,20,20,0.9) url('../img/file.png') no-repeat top center;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+}
+.folder {
+	background: rgba(20,20,20,0.9) url('../img/folder.png') no-repeat top center;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+}
+.menu_app_1 {
+	position: absolute; top: 0px; left: 0; right: 0; height: 40px;
+	background: rgba(56, 60, 74, 0.999);
+	display: inline-flex;
+	align-items: center;
+	justify-content: inline-start;
+	box-sizing: border-box;
+padding: 15px;
+}
+.menu_app_1 button {
+	color: #EFEFEF;
+	background: rgba(0,0,0,0.75);
+	border: 1px #000 solid;
+	margin: 0;
+	margin-right: 5px;
+	font-size: 18px;
+	cursor: pointer;
+}
+.menu_app_1 button:hover {
+	background: rgba(40,40,40,0.75);
+}
+.menu_app_1 button:active {
+	background: rgba(80,80,80,0.75);
+}
+#path_browser {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: #181818;
+	font-size-adjust: 16px;
+	z-index: 400;
+}
+.fbrowser {
+	background-color: #FCFCFC;
+	color: rgba(0,0,0,0.75);
+	text-shadow: 0 0 4px rgba(0,0,0,0.25);
+}
+.fbrowser:hover {
+	background-color: #f1efe2;
+}
+.fbrowser:active {
+	background-color: #316ac5;
+}

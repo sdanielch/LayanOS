@@ -1,0 +1,80 @@
+<div id="register-b">
+	Puedes unirte a nuestra base de datos rellenando este formulario
+	<form name="register" method="post" action="php/register.php" autocomplete="off" id="register">
+	<!-- Desactivamos el autocompletado -->
+	<input type="text" style="display:none" />
+	<input type="password" style="display:none" />
+	<input type="text" style="display:none" />
+	<input type="password" style="display:none" />
+	<input type="text" style="display:none" />
+	<input type="password" style="display:none" />
+	<!-- Desactivamos el autocompletado -->
+	<input type="text" required placeholder="Nombre" class="inp1" name="reg_nombre" /><br />
+	<input type="text" required placeholder="Apellidos" class="inp1" name="reg_apellidos" /><br />
+	<input type="text" required placeholder="Usuario" class="inp1" name="reg_usuario" /><br />
+	<input type="password" required placeholder="Contraseña" class="inp1" name="reg_pass" />
+	<input type="email" required placeholder="E-mail" class="inp1" name="reg_email" /><br />
+  <br /><br />
+	<input type="checkbox" id="cbox1" value="first_checkbox" required checked>  <label for="cbox1">Acepto la <a href="html/privacidad.html">política de privacidad</a>.</label>
+	<br />
+  <br />
+	<input type="submit" value="Registrar Datos" class="inp2" id="envr" />
+	<input type="reset" value="Cancelar (Debug)" class="inp2" />
+	</form>
+
+<script>
+///////////////////////////////////////////////////////////////////////
+// REGISTRO DE USUARIOS ///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+$( document ).ready(function() {
+// Capturamos el submit del formulario
+$( "#register" ).submit(function( event ) {
+  // Cambiamos el método del submit
+  event.preventDefault();
+  // Conseguimos los valores del formulario
+  var $form = $( this ),
+	reg_nombre = $form.find("input[name='reg_nombre']").val(),
+	reg_apellidos = $form.find("input[name='reg_apellidos']").val(),
+	reg_usuario = $form.find("input[name='reg_usuario']").val(),
+	reg_pass = $form.find("input[name='reg_pass']").val(),
+	reg_email = $form.find("input[name='reg_email']").val(),
+  url = $form.attr( "action" );
+	// Convertimos la contraseña a SHA512
+	var reg_pass1 = CryptoJS.SHA512(reg_pass);
+	// Convertimos el resultado de la contraseña a formato String
+	var reg_pass2 = String(reg_pass1);
+	// Consultamos la fecha actual
+	var d = new Date();
+	mes = d.getMonth() + 1
+  var fecha2 = d.getDate() + "/" + mes + "/" + d.getFullYear() + " -- " + d.getHours() + ":" + d.getMinutes();
+  // Mandamos la información al servidor
+  var posting = $.post( url, { reg_nombre1: reg_nombre, reg_apellidos1: reg_apellidos, reg_usuario1 : reg_usuario, reg_password: reg_pass2, reg_email1: reg_email, fecha: fecha2 } );
+  // Cerramos el formulario y damos la información en un DIV flotante
+  posting.done(function( data ) {
+console.log(data);
+$("#login-b, #register-b").remove();
+$("#login-a, #register-a").hide();
+setTimeout(function(){
+$("#notificaciones").show();
+$("#notf1").html(data);
+}, 300);
+setTimeout(function(){$("#notificaciones").hide();}, 3000);
+
+  }).fail(function() {
+    console.log( "Hubo un error al enviar los datos al servidor" );
+		$("#login-b, #register-b").remove();
+		$("#login-a, #register-a").hide();
+		setTimeout(function(){
+		$("#notificaciones").show();
+		$("#notf1").html("Hubo un error al enviar los datos al servidor");
+		}, 300);
+		setTimeout(function(){$("#notificaciones").hide();}, 3000);
+  });
+
+});
+///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+});
+</script>
+
+</div>

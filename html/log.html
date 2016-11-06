@@ -1,0 +1,72 @@
+<div id="login-b">
+<i class="bfont fa fa-user" aria-hidden="true"></i>
+<i class="bfont fa fa-users" aria-hidden="true"></i>
+<i class="bfont fa fa-user" aria-hidden="true"></i>
+
+<form action="php/login.php" method="post" autocomplete="off" id="login_usuarios">
+<!-- Desactivamos el autocompletado en chrome (Aun así sigue apareciendo :/) -->
+<input type="text" style="display:none" />
+<input type="password" style="display:none" />
+<!-- Desactivamos el autocompletado -->
+	<input type="text" required placeholder="Ingrese aquí su usuario" class="inp1" name="log_usuario" /><br />
+	<input type="password" required placeholder="Contraseña" class="inp1" name="log_password" /><br /><br />
+	<input type="checkbox" id="cbox1" value="first_checkbox" required checked>
+  <label for="cbox1">Acepto la <a href="html/privacidad.html">política de privacidad</a>.</label>
+  <br />
+	<br />
+	<input type="submit" value="Comprobar datos" class="inp2" id="log_input" />
+	<input type="reset" value="Cancelar (Debug)" class="inp2" />
+</form>
+
+<script>
+$( document ).ready(function() {
+// Capturamos el submit del formulario
+$( "#login_usuarios" ).submit(function( event ) {
+  // Cambiamos el método del submit
+  event.preventDefault();
+  // Conseguimos los valores del formulario
+  	var $form = $( this ),
+		log_usuario1 = $form.find("input[name='log_usuario']").val(),
+		log_password = $form.find("input[name='log_password']").val(),
+  	url = $form.attr( "action" );
+	// Convertimos la contraseña a SHA512 (Desde el lado del cliente)
+		var log_pass1 = CryptoJS.SHA512(log_password);
+	// Convertimos el resultado de la contraseña a formato String
+		var log_pass2 = String(log_pass1);
+  // Mandamos la información al servidor
+  	var posting = $.post( url, { log_usuario : log_usuario1, log_password : log_pass2  } );
+  // Cerramos el formulario y damos la información en un DIV flotante
+  	posting.done(function( data ) {
+		//	console.log(data);
+			$("#login-b, #register-b").remove();
+			$("#login-a, #register-a").hide();
+			setTimeout(function(){
+			$("#notificaciones").show();
+if ( data == "true" ) {
+	// Si el resultado es positivo...
+	$("#notf1").html('Inicio de sesión correcto, ingresando en la aplicación....');
+	// REDIRIGIMOS AL USUARIO A LA APLICACIÓN CON EL LOGIN EFECTUADO
+	setTimeout(function(){ document.location = './php/app.php'; }, 1500);
+} else {
+	// Si el resultado es negativo...
+	$("#notf1").html("El usuario o la contraseña es erroneo. ¿Puede que lo hayas escrito mal por tener el bloqueo mayusculas activo?");
+}
+
+}, 300);
+setTimeout(function(){$("#notificaciones").hide();}, 3000);
+  }).fail(function() {
+    console.log( "Hubo un error al enviar los datos al servidor" );
+		$("#login-b, #register-b").remove();
+		$("#login-a, #register-a").hide();
+		setTimeout(function(){
+		$("#notificaciones").show();
+		$("#notf1").html("Hubo un error al enviar los datos al servidor");
+		}, 300);
+		setTimeout(function(){$("#notificaciones").hide();}, 3000);
+  });
+
+});
+
+});
+</script>
+</div>

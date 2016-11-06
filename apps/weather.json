@@ -1,0 +1,11 @@
+{
+  "app" :  "El tiempo",
+  "url" : "weather/weather.html",
+  "version" : "0.0.1",
+  "icon" : "weather/icon.png",
+  "developer" : "Sergio Daniel Calvo Hidalgo",
+  "width" : "400",
+  "height": "300",
+  "limit" : "true",
+  "load_method" : "3"
+}

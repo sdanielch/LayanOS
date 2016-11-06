@@ -1,0 +1,50 @@
+html {
+ overflow: auto;
+ border: none;
+}
+body {
+	background: transparent; color: #181818; font-family: Arial; font-size: 16px;
+	/*La imágen de fondo se aplica desde JavaScript para los fondos personalizados */
+}
+#panel-menu {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; width: 200px;
+  background: transparent; overflow: auto; box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+#panel-area {
+  position: absolute;
+  top: 0; left: 200px; bottom: 0; right: 0;
+  background: #FFF; overflow: auto; box-sizing: border-box;
+  display: flex; color: #181818;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column; padding: 10px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.menu-panel-menu {
+  width: 160px;
+  color: #FFF;
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.menu-panel-mouseover {
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+
+}
+.menu-panel-activo {
+  background: rgba(255,255,255,0.6);
+}

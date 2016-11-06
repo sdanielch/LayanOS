@@ -1,0 +1,109 @@
+<script>
+function getRandomArbitrary3(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+function fbrowser(direccion) {
+  $("#browser_folder").html("");
+  if (direccion == undefined) { direccion = "../users/"+usuario+"/"; }
+$.getJSON( "./slist.php", { usdir: direccion, recdir: false } )
+  .done(function( json ) {
+// Por cada entrada encontrada en el array...
+    $.each( json, function( i, item ) {
+          if(item.type == "dir") {
+            // Cuando se trata de un directorio...
+            var NUMal = getRandomArbitrary3(500,80000000);
+            $("#browser_folder").append("<div class='browser_icon folder fbrowser' id='folder_"+NUMal+"' data-sort='1'><span>"+item.r_name+"</span></div>");
+//En el caso de que se pinche sobre ese directorio...
+$("#folder_"+NUMal).on("click", function(){
+  fbrowser(item.name);
+  $("#path_browser").text(item.name);
+});
+
+          } else {
+            var NUMal = getRandomArbitrary3(500,80000000);
+            if (item.r_name == "user_pref.json") {
+              // SI NOS ENCONTRAMOS ESTE ARCHIVO LO OCULTAMOS, ES EL CONFIGURADOR DE LA CUENTA DEL USUARIO
+            } else {
+
+
+              $("#browser_folder").append("<div class='browser_icon file fbrowser' id='file_"+NUMal+"' data-sort='2'><span>"+item.r_name+"</span></div>");
+              $("#file_"+NUMal).on("click", function(){
+
+              var extension = item.r_name.substr( (item.r_name.lastIndexOf('.') +1) );
+              switch(extension) {
+              case 'jpg': case 'png': case 'gif':
+                icono = item.name
+              break;
+
+
+              default:
+                icono = "../img/file.png";
+              }
+
+
+
+              new_window(NUMal,item.r_name,item.name,icono,640,480,1);
+
+              });
+
+
+
+            }
+
+
+          }
+         });
+// Cuando el EACH se ha completado procedemos a ordenar los elementos
+         $( json ).promise().done(function() {
+// Primero situamos los directorios frente a los ficheros
+$(".folder").appendTo("#browser_folder");
+$(".file").appendTo("#browser_folder");
+// Luego ordenamos alfabéticamente
+var mylist = $('#browser_folder');
+var listitems = mylist.children('.file').get();
+var listitems2 = mylist.children('.folder').get();
+listitems.sort(function(a, b) {
+   return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+})
+$.each(listitems2, function(idx, itm) { mylist.append(itm); });
+$.each(listitems, function(idx, itm) { mylist.append(itm); });
+
+
+       });
+
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});
+}
+fbrowser();
+
+
+function fbrowser_back(){
+var txt = $("#path_browser").text();
+var string = txt.slice(0, -1); // Borramos el ultimo SLASH
+var result = string.split('/');  // Cortamos por SLASH y guardamos en un array
+var final = result.pop();  // Borramos la parte anterior y guardamos el ultimo dato
+var previous = result.join('/');  // Grabamos la parte anterior
+if (previous == "" | previous == "../users" ) {
+  // NOTHING
+} else {
+  fbrowser(previous);
+  $("#path_browser").text(previous); // Utilizamos el div como buffer de datos
+
+}
+
+}
+</script>
+<div class="menu_app_1">
+  <button onclick="fbrowser_back()"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></button>
+  <button><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+  <button onclick="fbrowser()"><i class="fa fa-home" aria-hidden="true"></i></button>
+
+
+</div>
+<div id="browser_folder"></div>
+<div id="path_browser" style="display: none;"></div>

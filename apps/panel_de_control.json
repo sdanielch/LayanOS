@@ -1,0 +1,11 @@
+{
+  "app" :  "Panel de Control",
+  "url" : "panel/panel.html",
+  "version" : "0.0.3",
+  "icon" : "panel/control-panel-icon-png-21.png",
+  "developer" : "Sergio Daniel Calvo Hidalgo",
+  "width" : "800",
+  "height": "450",
+  "limit" : "true",
+  "load_method" : "3"
+}

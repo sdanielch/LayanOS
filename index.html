@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>LayanOS N</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/resetcss.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="alternate" title="Nuestro RSS" type="application/rss+xml" href="/feed.rss" />
+<!-- Cargamos el framework estrella de la aplicación -->
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<!-- Cargamos un plugin para permitir desde el lado del cliente, generar un hash con encriptacion SHA512 (De este modo el servidor NUNCA recibe ni almacena la clave sin cifrar del usuario. -->
+<script type="text/javascript" src="js/sha512.js"></script>
+<!-- Cargamos un plugin para reemplazar las barras de scroll del navegador por unas con mayor estilo y configurables -->
+<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+<!-- Cargamos los scripts iniciales que hacen uso de los scripts anteriores -->
+<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+<body>
+
+<div id="navbar-a">
+<div>
+	<button type="button" id="reg1">¡Registrate!</button>
+	<button type="button" id="log1">Iniciar sesión</button><!-- Este botón se modifica automáticamente por jQuery si algun usuario tiene la sesión abierta -->
+</div>
+<div id="navbar-b">
+<div class="info">
+	<!-- Mientras se comprueba si existe una sesión abierta, dejámos un mensaje de cortesía -->
+	Comprobando...
+</div>
+</div>
+
+</div>
+<!-- LOGO: Consta de dos líneas y un circulo, ambas con estilos dinámicos con respecto al ANCHO de la página -->
+<div class="moon"></div>
+<div id="presentacion">
+<span style="font-size: 6vw; z-index: 100;">LayanOS</span><br />
+<span style="font-size: 2vw; font-style: italic; z-index: 100;">Wherever you are</span>
+</div>
+
+<div id="register-a" style="display: none;"></div>
+<div id="login-a" style="display: none;"></div>
+<div id="notificaciones" style="display: none;">
+<div id="notf1">Notificaciones</div>
+</div>
+
+</body>
+</html>

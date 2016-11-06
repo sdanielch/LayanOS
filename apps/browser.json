@@ -1,0 +1,11 @@
+{
+  "app" :  "Navegador de archivos",
+  "url" : "browser/browser.html",
+  "version" : "0.0.1",
+  "icon" : "browser/browser.ico",
+  "developer" : "Sergio Daniel Calvo Hidalgo",
+  "width" : "800",
+  "height": "500",
+  "limit" : "true",
+  "load_method" : "3"
+}

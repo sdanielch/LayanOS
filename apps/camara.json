@@ -1,0 +1,7 @@
+{
+  "app" :  "Cámara",
+  "url" : "camera/camara.html",
+  "version" : "0.0.3",
+  "icon" : "camera/camera.ico",
+  "developer" : "Sergio Daniel Calvo Hidalgo"
+}

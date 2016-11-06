@@ -1,0 +1,36 @@
+Configuración JSON de un programa en LayanOS:
+
+{
+  "app" :  "Panel de Control", 		<-- Nombre de la aplicación
+  "url" : "panel/panel.html",		<-- URL relativa de la aplicación
+  "version" : "0.0.3",				<-- Version
+  "icon" : "panel/control-panel-icon-png-21.png",	<-- Icono
+  "developer" : "Sergio Daniel Calvo Hidalgo",		<-- Desarrollador
+  "width" : "800",					<-- Acho de la aplicación
+  "height": "450",					<-- Alto de la aplicación
+  "limit" : "true",					<-- Limitar a una estancia (true)
+  "load_method" : "1"				<-- Método de carga *
+}
+
+
+* Métodos de carga:
+
+	1 = <OBJECT> y <EMBED>		-- No interfiere con los scripts abiertos en LayanOS (HTML5)
+	2 = <IFRAME>				-- Igual que OBJECT pero ya esta desfasado (HTML4)
+	3 = LOAD by JQUERY (AJAX)	-- Interactua con los scripts ya abiertos en LayanOS **
+
+Para aplicaciones de configuración propias de la plataforma se recomienda el método 3.
+Para aplicaciones extensas o de terceros se recomienda el método 1 para no interferir en 
+el código activo de LayanOS.
+
+
+** Método 3 de carga:
+	Este método es rápido y carga menos datos que los demás, no obstante, comparte
+	información con los script y hojas de estilo que ya están cargados en LayanOS, 
+	si se usa este método es estrictamente necesario que las clases tengan un prefijo o
+	sufijo para diferenciarlas	de las clases que estan en ejecución en LayanOS. Además
+	de tener cuidado y no volver a cargar las librerias como jQuery que ya están en ejecución.
+	Básicamente cargando el contenido por Ajax hacemos incrustar el código del programa
+	en el de LayanOS y aunque se hace de forma temporal se puede volver inestable.
+
+

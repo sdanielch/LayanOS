@@ -1,0 +1,179 @@
+body {
+	background: #040404;
+	background: #181818 url('../img/st.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#navbar-a {
+	position: absolute;
+	left: 0;top: 0;right:0; height: 40px;
+	max-width: 1400px; margin: auto;
+	z-index: 2;
+	background: rgba(10,10,10,0.9);
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	flex-direction: column;
+	font-family: Arial;
+	box-sizing: border-box;
+	font-size: 16px;
+	color: #EFEFEF;
+	padding-right: 15px;
+	border-radius: 0 0 15px 15px;
+}
+
+button {
+box-sizing: border-box;
+padding: 5px;
+padding-left: 10px;
+padding-right: 10px;
+background: rgba(40,40,40,0.75);
+color: #CDCDCD;
+margin: 0px;
+min-width: 100px;
+border: 1px rgba(100,100,100,0.5) solid;
+border-radius: 0 30px 30px 0;
+text-shadow: 1px 1px 4px rgba(0,0,0,0.75);
+}
+button:first-child{
+	border-radius: 30px 0 0 30px;
+	margin-right: -6px;
+}
+button:hover {
+	background: rgba(120,120,120,0.85);
+ cursor: pointer;
+}
+button:active {
+	background: rgba(200,200,200,0.95);
+ cursor: pointer;
+}
+
+#navbar-b {
+	position: absolute;
+  top: 0; left: 0; bottom: 0;
+	padding-left: 15px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
+
+
+#login-a, #register-a {
+	position: absolute;
+	left: 20px ;top: 60px;right: 20px;bottom: 20px;
+	max-width: 1400px; margin: auto;
+	z-index: 2;
+	background: rgba(0,0,0,0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-family: Arial;
+	box-sizing: border-box;
+	font-size: 16px;
+  overflow: auto;
+	z-index: 800;
+}
+#login-b, #register-b {
+	position: relative;
+	min-width: 500px;
+	min-height: 200px;
+	background: rgba(0,0,0,0.85);
+	color: #EFEFEF;
+	box-sizing: border-box;
+  padding: 20px;
+	border-radius: 4px 4px 6px 6px;
+	border: 1px rgba(50,50,50,0.8) solid;
+	text-align: center;
+	animation: daylog 500ms;
+/*	box-shadow: 2px 2px 35px 15px #000;*/
+}
+.inp1 {
+	box-sizing: border-box;
+padding: 10px;
+background: rgba(50,50,50,0.5);
+color: #CDCDCD;
+margin-top: 10px;
+width: 95%;
+border: 1px #484848 solid;
+border-radius: 12px;
+}
+.inp1:focus {
+	box-shadow: 0 0 1px 1px #424242;
+}
+@keyframes daylog {
+	0% {transform:scale(0.5,0.1); opacity: 0.2;}
+	40% {transform:scale(1.4,1.2); opacity: 1.0;}
+	100% {transform:scale(1.0,1.0); opacity: 1.0;}
+}
+.inp2 {
+	box-sizing: border-box;
+padding: 10px;
+background: rgba(20,20,20,0.75);
+color: #CDCDCD;
+margin: 10px;
+min-width: 100px;
+border: 1px rgba(100,100,100,0.5) solid;
+border-radius: 4px;
+}
+.inp2:hover{
+	background: #646464;
+	cursor: pointer;
+}
+.inp2:active{
+	background: #888888;
+}
+a, a:link{
+	color: #CDCDCD;
+	text-decoration: none;
+	font-weight: bold;
+}
+#notificaciones {
+	position: absolute;
+	top: 80px; left: 0; right: 0; max-width: 400px; margin: auto;
+	min-height: 60px; box-sizing: border-box; padding: 20px;
+	background: rgba(0,0,0,0.8);
+	color: #EFEFEF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-family: Arial;
+	z-index: 800;
+	border-radius: 14px;
+	border: 1px rgba(100,100,100,0.75) solid;
+	animation: daylog2 500ms ease-out;
+	box-shadow: 1px 1px 20px 8px #000;
+}
+@keyframes daylog2 {
+	0% {transform:scale(0.25,0.25); opacity: 0.25; top: 0px;}
+	100% {transform:scale(1.0,1.0); opacity: 1.0;}
+}
+#presentacion {
+	position: absolute; top: 15%; left: 5%; margin: auto;
+	max-width: 1400px; text-align: center;
+		font-family: 'Raleway', Arial;
+		font-weight: 300; color: rgba(255,255,255,0.8);
+		z-index: 250;
+		/*animation: daylog25 2000ms ease-in-out;*/
+text-shadow:  1px 1px 4px rgba(0,0,0,0.75);
+}
+@keyframes daylog25 {
+	0% { 		-webkit-filter: blur(16px); -o-filter: blur(16px);
+			-moz-filter: blur(16px); filter: blur(16px); }
+	100% {		-webkit-filter: blur(0px); -o-filter: blur(0px);
+			-moz-filter: blur(0px); filter: blur(0px);}
+}
+.moon {
+	width: 12vw; height: 12vw; background: rgba(255,255,255,0.6); position: absolute; top: 13%; left: 10%; z-index: 80; border-radius: 250px; box-shadow: inset 10px 20px 35px 10px #444, 0 0 35px 15px #FFF;
+/*	background: #181818 url('../img/wall2.jpg') no-repeat center center;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;*/
+}

@@ -1,0 +1,40 @@
+<div id="weatherAPP">
+Recibiendo datos sobre su ubicación (Basado en su IP)...
+</div>
+<script>
+
+
+$.getJSON( "http://ipinfo.io" )
+    .done(function( data2, textStatus, jqXHR ) {
+      /* ----------------------------------------------------------------------  */
+      $("#weatherAPP").html("Ciudad detectada como: " + data2.city + "/" + data2.country + "<br /> Recibiendo datos meteorológicos ");
+      $.getJSON( "../apps/weather/weather.php", { "city" : data2.city, "country" : data2.country } )
+          .done(function( data, textStatus, jqXHR ) {
+            $("#weatherAPP").html("");
+                  var obj = JSON.parse(data);
+                  $("#weatherAPP").append("Localización: " + obj.location.name + ", " + obj.location.region );
+                  $("#weatherAPP").append("<br /> Última actualización: " + obj.current.last_updated );
+                  $("#weatherAPP").append("<br /> Temperatura: " + obj.current.temp_c + "°C");
+                  $("#weatherAPP").append("<br /> Pronóstico: " + obj.current.condition.text );
+                  $("#weatherAPP").append("<br /> Velocidad del viento: " + obj.current.wind_kph + " Km/h" );
+                  $("#weatherAPP").append("<br /> Humedad: " + obj.current.humidity + "%" );
+                  $("#weatherAPP").append("<br /> Sensación térmica: " + obj.current.feelslike_c + "°C" );
+                  $("#weatherAPP").append("<br /> <img src='http:" + obj.current.condition.icon + "' />" );
+
+
+          })
+          .fail(function( jqXHR, textStatus, errorThrown ) {
+                  $("#weatherAPP").html( "Ha ocurrido un error al descargar datos del weather: " +  textStatus );
+      });
+      /* ----------------------------------------------------------------------  */
+
+
+    })
+    .fail(function( jqXHR, textStatus, errorThrown ) {
+            $("#weatherAPP").html( "Ha ocurrido un error al obtener su CIUDAD: " +  textStatus );
+});
+
+
+
+
+</script>

@@ -11,7 +11,7 @@ if (isset($_FILES["file"]))
     $dimensiones = getimagesize($ruta_provisional);
     $width = $dimensiones[0];
     $height = $dimensiones[1];
-    $carpeta = "./../../users/".$_SESSION['usuario']."/";
+    $carpeta = "./../../users/".$_SESSION['usuario']."/Fondos/";
 
     if ($tipo != 'image/jpg' && $tipo != 'image/jpeg' && $tipo != 'image/png' && $tipo != 'image/gif' && $tipo != 'image/pjpeg')
     {
@@ -33,9 +33,9 @@ if (isset($_FILES["file"]))
     {
         $src = $carpeta.$nombre;
         move_uploaded_file($ruta_provisional, $src);
-        echo "<img src='./../users/".$_SESSION['usuario']."/".$nombre."' style='width: 180px; margin: 10px;'>";
+        echo "<img src='./../users/".$_SESSION['usuario']."/Fondos/".$nombre."' style='width: 180px; margin: 10px;'>";
         // Por JavaScript mandamos el fondo:
-        echo "<script>$.get( 'save_pref.php', { pref1: '".$nombre."', pref2: '".$nombre."' } ); change_wall('users/".$_SESSION['usuario']."/".$nombre."');</script>";
+        echo "<script>$.get( 'save_pref.php', { pref1: 'Fondos/".$nombre."', pref2: 'Fondos/".$nombre."' } ); change_wall('users/".$_SESSION['usuario']."/Fondos/".$nombre."');</script>";
     }
 }
 ?>

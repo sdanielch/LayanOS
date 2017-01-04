@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <?php
 require_once 'database.php';
+header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 session_start();
 if (isset($_SESSION['usuario'])) {
 // SESION INICIADA
@@ -14,23 +19,23 @@ function makeDir($path)
      return $ret === true || is_dir($path);
 }
 // Creamos (si es que no lo hay, un directorio personal para el usuario)
-$comprobando_directorio = makeDir("../users/".$_SESSION['usuario']);
-if ($comprobando_directorio == true) {
-  echo "<script>console.log('Se ha creado un nuevo directorio para el usuario ".$_SESSION['usuario']."')</script>";
-} else {
-  echo "<script>console.log('Ya existe un directorio para el usuario ".$_SESSION['usuario']."')</script>";
-}
+makeDir("../users/".$_SESSION['usuario']);
+makeDir("../users/".$_SESSION['usuario']."/Fondos");
+
 // Damos los permisos de escritura y lectura al servidor
 function chmod_r($path) {
     $dir = new DirectoryIterator($path);
     foreach ($dir as $item) {
-        chmod($item->getPathname(), 0777);
+        chmod($item->getPathname(), 0775);
         if ($item->isDir() && !$item->isDot()) {
             chmod_r($item->getPathname());
         }
     }
 }
 chmod_r("../users/".$_SESSION['usuario']);
+
+
+
 ?>
 <title>LayanOS - Wherever you are</title>
 <link rel="stylesheet" href="../css/resetcss.css" />
@@ -44,22 +49,51 @@ chmod_r("../users/".$_SESSION['usuario']);
 <script type="text/javascript" src="../js/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="../js/jquery.wait.js"></script>
 <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/jQRSS.min.js"></script>
 <script type="text/javascript" src="../js/new_task.js"></script>
 <script type="text/javascript" src="../js/new_window.js"></script>
 <script type="text/javascript" src="../js/app-scripts.js"></script>
+<script>
+$(function(){
+$.jQRSS('http://www.bing.com/HPImageArchive.aspx?format=rss&idx=0&n=1&mkt=en-US', { count: 1, output: 'json' }, 
+    function(data, textStatus, jqXHR) {
+      bing_image = "http://www.bing.com" + data.entries[0].link;
+      sessionStorage.setItem('bing_image', bing_image);
+      }
+);
+
+});
+</script>
 </head>
 <body>
+<div class="appbackground" data-adaptive-background data-ab-css-background></div>
 <div id="menubar">
-<a href="logout.php">Cerrar sesión</a>
+  <span id="menubar_d" class="zz"><i class="fa fa-bars" aria-hidden="true"></i>&nbsp;&nbsp;Apps</span>
+
+   
+
+<a href="logout.php">
+  <i class="fa fa-sign-out" aria-hidden="true"></i>
+</a>
 </div>
+
+
 <div id="taskbar">
   <div class="item-taskbar" name="menu" id="menu-taskbar"></div>
-
 </div>
 <div id="panel-taskbar">
 <div id="apps1"></div>
 </div>
-<div id="desktop"></div>
+<div id="desktop">
+  
+
+<ul class='custom-menu'>
+  <li data-action="first">Detalles de cuenta</li>
+  <li data-action="second">Fondo de pantalla</li>
+  <li data-action="third">Propiedades</li>
+</ul>
+
+</div>
 
 
 <div id="cc">LayanOS</div>

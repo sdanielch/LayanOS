@@ -3,7 +3,6 @@ function getRandomArbitrary3(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
 function fbrowser(direccion) {
   $("#browser_folder").html("");
   if (direccion == undefined) { direccion = "../users/"+usuario+"/"; }
@@ -20,39 +19,44 @@ $("#folder_"+NUMal).on("click", function(){
   fbrowser(item.name);
   $("#path_browser").text(item.name);
 });
-
           } else {
             var NUMal = getRandomArbitrary3(500,80000000);
             if (item.r_name == "user_pref.json") {
               // SI NOS ENCONTRAMOS ESTE ARCHIVO LO OCULTAMOS, ES EL CONFIGURADOR DE LA CUENTA DEL USUARIO
             } else {
-
-
               $("#browser_folder").append("<div class='browser_icon file fbrowser' id='file_"+NUMal+"' data-sort='2'><span>"+item.r_name+"</span></div>");
-              $("#file_"+NUMal).on("click", function(){
 
-              var extension = item.r_name.substr( (item.r_name.lastIndexOf('.') +1) );
+var extension = item.r_name.substr( (item.r_name.lastIndexOf('.') +1) );
+//Creamos un array con los distintos tipos de extensiones para imagenes
+tipos_de_imagen = ["jpg","jpeg", "png", "gif", "bmp", "ico"];
+var ESTIP = $.inArray(extension, tipos_de_imagen);
+// SI en los ficheros encuentra 
+if (ESTIP == 0) {
+  $("#file_"+NUMal).css({
+    "background": "#323232 url('"+item.name+"') no-repeat center center",
+  "-webkit-background-size": "100%",
+  "-moz-background-size": "100%",
+  "-o-background-size": "100%",
+  "background-size": "100%"
+  });
+  $("#file_"+NUMal+" span").text("");
+}
+
+
+
+
+              $("#file_"+NUMal).on("click", function(){
+              
               switch(extension) {
               case 'jpg': case 'png': case 'gif':
                 icono = item.name
               break;
-
-
               default:
                 icono = "../img/file.png";
               }
-
-
-
-              new_window(NUMal,item.r_name,item.name,icono,640,480,1);
-
+              new_window(NUMal,item.r_name,item.name,icono,640,480,"files","file");
               });
-
-
-
             }
-
-
           }
          });
 // Cuando el EACH se ha completado procedemos a ordenar los elementos
@@ -69,7 +73,6 @@ listitems.sort(function(a, b) {
 })
 $.each(listitems2, function(idx, itm) { mylist.append(itm); });
 $.each(listitems, function(idx, itm) { mylist.append(itm); });
-
 
        });
 
@@ -93,15 +96,44 @@ if (previous == "" | previous == "../users" ) {
 } else {
   fbrowser(previous);
   $("#path_browser").text(previous); // Utilizamos el div como buffer de datos
-
+}
 }
 
+function fbrowser_ndirectory(ndir) {
+  // Comprobamos y tenemos presente el directorio donde se encuentra actualmente
+  var directorio_actual = $("#path_browser").text();
+  $.getJSON( "./../apps/browser/mkdir.php", { dira: directorio_actual, dirn: "testing" } )
+    .done(function( response ) {
+      console.log("PETICION ENVIADA CORRECTAMENTE!");
+      console.log(response[0].dir1);
+      console.log(response[0].dir2);
+
+    })
+    .fail(function( jqxhr, textStatus, error ) {
+      var err = textStatus + ", " + error;
+      console.error( "PETICION NO ENVIADA: " + err );
+  });
 }
+$("#user_space span:nth-child(1)").load("size_home.php");
 </script>
 <div class="menu_app_1">
   <button onclick="fbrowser_back()"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></button>
   <button><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
   <button onclick="fbrowser()"><i class="fa fa-home" aria-hidden="true"></i></button>
+  <button onclick="fbrowser_ndirectory()"><i class="fa fa-folder-o" aria-hidden="true"> </i> Nuevo directorio</button>
+  <style>
+  #user_space {
+    line-height: 1;
+    font-size: 10px;
+    text-align: center;
+  }
+  #user_space span {
+    font-weight: bold;
+  }
+  </style>
+  <div id="user_space">
+    Usaste <span>X</span> de <span>100MB</span><br />En tu cuenta de LayanOS
+  </div>
 
 
 </div>

@@ -7,8 +7,27 @@ Recibiendo datos sobre su ubicación (Basado en su IP)...
 $.getJSON( "http://ipinfo.io" )
     .done(function( data2, textStatus, jqXHR ) {
       /* ----------------------------------------------------------------------  */
-      $("#weatherAPP").html("Ciudad detectada como: " + data2.city + "/" + data2.country + "<br /> Recibiendo datos meteorológicos ");
-      $.getJSON( "../apps/weather/weather.php", { "city" : data2.city, "country" : data2.country } )
+      $("#weatherAPP").html("Ciudad detectada como: " + data2.city + "/" + data2.country + "<br /> Recibiendo datos meteorológicos... ");
+
+
+
+function limpiar(text) {
+var text = text.toLowerCase(); // a minusculas
+text = text.replace(/[áàäâå]/g, 'a');
+text = text.replace(/[éèëê]/g, 'e');
+text = text.replace(/[íìïî]/g, 'i');
+text = text.replace(/[óòöô]/g, 'o');
+text = text.replace(/[úùüû]/g, 'u');
+text = text.replace(/[ýÿ]/g, 'y');
+text = text.replace(/[ñ]/g, 'n');
+text = text.replace(/[ç]/g, 'c');
+return text;
+}
+ciudad = limpiar(data2.city);
+console.log(ciudad)
+
+
+      $.getJSON( "../apps/weather/weather.php", { "city" : ciudad, "country" : data2.country } )
           .done(function( data, textStatus, jqXHR ) {
             $("#weatherAPP").html("");
                   var obj = JSON.parse(data);

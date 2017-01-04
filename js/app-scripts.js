@@ -1,20 +1,40 @@
 function getRandomArbitrary2(min, max) {
   return Math.random() * (max - min) + min;
 }
-function change_wall(fondo) {
+function change_wall(fondo,isurl) {
   var NUMal = getRandomArbitrary2(500,80000)
   if (fondo == undefined ) {
     fondo = "img/wall1.jpg";
   }
-  $("body").css({
-    "background": "#181818 url('../"+fondo+"?"+NUMal+"') no-repeat center center fixed",
-  	"-webkit-background-size": "cover",
+   if (isurl == undefined ) {
+    isurl = "../";
+  }
+  $(".appbackground").css({
+    //"background": "#181818 url('../"+fondo+"?"+NUMal+"') no-repeat center center fixed",
+    "background-repeat": "no-repeat",
+    "background-attachment": "fixed",
+    "background-position": "center center",
+    "background-image": "url('"+isurl+fondo+"?"+NUMal+"')",
+    "-webkit-background-size": "cover",
   	"-moz-background-size": "cover",
   	"-o-background-size": "cover",
   	"background-size": "cover"
   });
+
+// DETECTANDO COLOR PREDOMINANTE
+/*var fondogr = "../" + fondo
+var tracking = new Image();
+tracking.onload = function() {
+  console.log("Fondo cargado...");
+}
+tracking.src = fondogr;
+if (tracking.complete) img.onload();
+}*/
 }
 $( document ).ready(function() {
+
+
+
 $.ajaxSetup ({
         // Disable caching of AJAX responses
         cache: false,
@@ -35,11 +55,16 @@ function UrlExists(url)
 }
 $.get( "../users/"+usuario+"/user_pref.json", function( data ) {
   // Comprobamos si tiene guardado un fondo de escritorio en sus preferencias
+  if (data.url_externa == false) {
   if (data.url_fondo_de_pantalla != "null") {
     // Comprobamos el fichero obtenido, y si existe cambiamos el fondo de escritorio
     if(UrlExists("../users/"+usuario+"/"+data.url_fondo_de_pantalla) == true ) {
   change_wall("./users/"+usuario+"/"+data.url_fondo_de_pantalla);
 }
+}
+
+} else {
+  change_wall(data.url_fondo_de_pantalla,"");
 }
 }, "json" );
 
@@ -53,6 +78,18 @@ $("html, #taskbar, #panel-taskbar").niceScroll({
    cursorwidth: "8px",
    autohidemode: true
 });
+
+// EFECTOS taskbar
+
+
+
+
+
+
+
+//////////////////
+
+
 
 $("#menu-taskbar").on("click", function() {
   $("#panel-taskbar").toggle();
@@ -90,7 +127,6 @@ else {
   });
 }
 
-
 // LISTAMOS LOS PROGRAMAS QUE HAY DENTRO DEL DIRECTORIO DE PROGRAMAS
 $.getJSON( "./slist.php", { usdir: "../apps/", recdir: false } )
   .done(function( json ) {
@@ -107,14 +143,11 @@ $.getJSON( item.name )
 .done(function( json ) {
   crear_icono("#apps1",json.app,json.url,json.icon,json.width,json.height,json.limit,json.load_method);
  });
-
-
           }
          });
 
-
          $( json ).promise().done(function() {
-console.error("CARGADAS LAS APPS");
+console.info("Recorrido el directorio de aplicaciones.");
         // Luego ordenamos alfabéticamente
         var mylist = $('#apps1');
         var listitems = mylist.children('span').get();
@@ -127,16 +160,70 @@ console.error("CARGADAS LAS APPS");
         });
 
 
-
-
   })
   .fail(function( jqxhr, textStatus, error ) {
     var err = textStatus + ", " + error;
-    console.log( "Request Failed: " + err );
+    console.log( "Error al cargar: " + err );
+});
+
+// Fixing bugs in #apps1 (listado de aplicaciones)
+$("#menubar_d").on("click", function() {
+  $("#menu-taskbar").click();
+});
+$("#desktop, .window").on("click", function() {
+  $("#panel-taskbar").hide();
+
+});
+
+//$("#panel-taskbar").
+
+
+
+
+
+$(document).bind("contextmenu", function (event) {
+    
+    // Avoid the real one
+    event.preventDefault();
+    
+    // Show contextmenu
+    $(".custom-menu").finish().toggle(100).
+    
+    // In the right position (the mouse)
+    css({
+        top: event.pageY + "px",
+        left: event.pageX + "px"
+    });
 });
 
 
+// If the document is clicked somewhere
+$(document).bind("mousedown", function (e) {
+    
+    // If the clicked element is not the menu
+    if (!$(e.target).parents(".custom-menu").length > 0) {
+        
+        // Hide it
+        $(".custom-menu").hide(100);
+    }
+});
 
-//$("#panel-taskbar").
+
+// If the menu element is clicked
+$(".custom-menu li").click(function(){
+    
+    // This is the triggered action name
+    switch($(this).attr("data-action")) {
+        
+        // A case for each action. Your actions here
+        case "first": alert("first"); break;
+        case "second": alert("second"); break;
+        case "third": alert("third"); break;
+    }
+  
+    // Hide it AFTER the action was triggered
+    $(".custom-menu").hide(100);
+  });
+
 
 });

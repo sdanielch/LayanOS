@@ -10,10 +10,21 @@ body {
 /* Estilo del panel superior */
 #menubar {
 	position: fixed; top: 0; left: 0; right: 0; height: 30px;
-	background: rgba(20,20,20,0.8); color: #EFEFEF; box-sizing: border-box;
+	background: rgba(10,10,10,1); color: #EFEFEF; box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	border-bottom: 1px rgba(80,80,80,0.6) solid;
+	-webkit-transition: all 1500ms ease;
+-moz-transition: all 1500ms ease;
+-ms-transition: all 1500ms ease;
+-o-transition: all 1500ms ease;
+transition: all 1500ms ease;
+
+background: -moz-linear-gradient(top, rgba(45,45,45,0.75) 0%, rgba(32,32,32,0.77) 48%, rgba(29,29,29,0.77) 51%, rgba(23,23,23,0.8) 100%);
+background: -webkit-linear-gradient(top, rgba(45,45,45,0.75) 0%,rgba(32,32,32,0.77) 48%,rgba(29,29,29,0.77) 51%,rgba(23,23,23,0.8) 100%);
+background: linear-gradient(to bottom, rgba(45,45,45,0.75) 0%,rgba(32,32,32,0.77) 48%,rgba(29,29,29,0.77) 51%,rgba(23,23,23,0.8) 100%);
+
 }
 #menubar a, #menubar a:link{
 	text-decoration: none;
@@ -25,23 +36,58 @@ body {
 object:focus {
     outline: none;
 }
+#menubar_d {
+	float:left;
+	text-align: left;
+	position: absolute;
+	top: 0; left: 0; width: 100px; height: 29px;
+	background: rgba(0, 60, 106, 0.8) ;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	/*border-bottom: 1px #39f solid;*/
+	-webkit-transition: all 300ms ease;
+-moz-transition: all 300ms ease;
+-ms-transition: all 300ms ease;
+-o-transition: all 300ms ease;
+transition: all 300ms ease;
+background: -moz-linear-gradient(left, rgba(0,135,204,0.75) 0%, rgba(23,23,23,0.01) 99%, rgba(23,23,23,0) 100%);
+background: -webkit-linear-gradient(left, rgba(0,135,204,0.75) 0%,rgba(23,23,23,0.01) 99%,rgba(23,23,23,0) 100%);
+background: linear-gradient(to right, rgba(0,135,204,0.75) 0%,rgba(23,23,23,0.01) 99%,rgba(23,23,23,0) 100%);
+
+}
+#menubar_d:hover, #menubar_d:active {
+	background: -moz-linear-gradient(left, rgba(51,153,255,1) 0%, rgba(125,185,232,0) 100%);
+background: -webkit-linear-gradient(left, rgba(51,153,255,1) 0%,rgba(125,185,232,0) 100%);
+background: linear-gradient(to right, rgba(51,153,255,1) 0%,rgba(125,185,232,0) 100%);
+	cursor: pointer;
+}
 /* Le damos forma a la barra de tareas inicial */
 #taskbar {
-	position: fixed; top: 30px; left: 0; bottom: 0; width: 72px;
+	position: fixed; top: 30px; left: -72px; bottom: 0; width: 72px;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	flex-direction: column;
 	overflow: auto;
-	background: rgba(0,0,0,0.9);
-	background: -moz-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
-	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.9)), color-stop(89%, rgba(23,23,23,0.72)), color-stop(100%, rgba(0,0,0,0.7)));
-	background: -webkit-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
-	background: -o-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
-	background: -ms-linear-gradient(left, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
-	background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(23,23,23,0.72) 89%, rgba(0,0,0,0.7) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+	-webkit-box-shadow: 15px 0 15px -10px #000000;
+	box-shadow: 15px 0 15px -10px #000000;
+	background: rgba(10,10,10,0.8)
+}
+
+#taskbar_sec {
+	position: fixed; top: 30px; left: 0; bottom: 0; width: 72px;
+	box-sizing: border-box; background: #39f;
+}
+#taskbar_ter {
+	position: fixed; top: 30px; left: 0; bottom: 0; width: 50px;
+	box-sizing: border-box; background: #0F0;
+}
+#taskbar_cua {
+	position: fixed; top: 30px; left: 0; bottom: 0; width: 30px;
+	box-sizing: border-box; background: #F00;
 }
 /* Forma de los elementos que hay dentro de la barra de tareas (procesos)*/
 .item-taskbar {
@@ -88,9 +134,10 @@ transition: all 200ms ease-out;
 	-o-background-size: 100% 100%;
 	background-size: 100% 100%;
 	border-radius: 256px;
+	display: none;
 }
 #panel-taskbar {
-	position: fixed; top: 30px; left: 72px;
+	position: fixed; top: 30px; left: 0px;
 	width: 75%; height: 80%; background: rgba(20,20,20,0.8) /* Color reemplazado por JavaScript*/;
 	border-radius: 0 4px 16px 0; display: none;
 	animation: daylog25 400ms ease-in-out;
@@ -110,6 +157,7 @@ transition: all 200ms ease-out;
 	width: 100%;
 	height: 100%;
 	display: inline-block;
+	background: rgba(10,10,10,0.8);
 }
 .div_icono {
 	position: relative;
@@ -139,8 +187,10 @@ height: 96px;
 position: absolute;
 top: 100px; left: 100px;
 min-width: 400px; min-height: 300px;
-background: rgba(0,0,0,0.8); z-index: auto;
+background: rgba(0,0,0,0.8);
 border: 1px rgba(0,0,0,0.75) solid;
+z-index: 100;
+border-radius: 12px 12px 4px 4px;
 }
 .window_a {
 	animation: daylog255 300ms ease-out;
@@ -160,31 +210,72 @@ border: 1px rgba(0,0,0,0.75) solid;
 	}
 /* Barra de títulos de las aplicaciones */
 .bartip {
-	position: absolute; top: 0; left: 0; right: 0;  min-height:  30px; background: rgba(56, 60, 74, 0.999); color: #EFEFEF;
+	position: absolute; top: 0; left: 0; right: 0;  min-height:  30px; 
+	background: rgba(10, 10, 14, 0.4); color: #EFEFEF;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	/* flex-direction: column; */
+	border-radius: 12px 12px 0 0;
+	border-bottom: 1px solid rgba(120,120,120,0.4);
 }
 .titlebar {
 	margin-left: 20px;
 }
 /* Contenido de las ventanas */
 .ajaxload {
-	position: absolute; top: 30px; left: 0; right: 0; background: transparent; color: #EFEFEF;
+	position: absolute; top: 30px; left: 0; right: 0;
+	 background: transparent; color: #EFEFEF;
+	 padding: 8px;
+	 line-height: 1.5;
 }
 
 /* BOTONES DE LA BARRA DE TITULO */
 .bwindow {
-	width: 24px; height: 24px;
-	-webkit-background-size: 100% 100%;
- -moz-background-size: 100% 100%;
-	-o-background-size: 100% 100%;
-	background-size: 100% 100%;
-	position: relative;
-	display: inline-block;
+	margin-top: -10px;
+	width: 30px; height: 20px;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,0.4);
+	border-radius: 0px;
+	margin-right: 0px;
+	border: 1px solid #181818;
+	font-size: 14px;
+	color: rgba(255,255,255,0.8);
+	-webkit-transition: all 500ms ease-out;
+-moz-transition: all 300ms ease-out;
+-ms-transition: all 300ms ease-out;
+-o-transition: all 300ms ease-out;
+transition: all 300ms ease-out;
+border-bottom: 1px solid #262626;
+	
 }
-.bclose {	background: url('../img/window-buttons/close.svg') no-repeat center center;}
+.bwindow:first-child {
+	margin-left: 10px;
+	background: #810;
+	border-radius: 0 0 0 6px;
+	width: 36px;
+	border-right: 0px solid #000;
+}
+.bwindow:first-child:hover{
+	background: #E20;
+	-webkit-box-shadow: 0 4px 16px 2px #FF2929;
+box-shadow: 0 4px 16px 2px #FF2929;
+
+}
+.bwindow:nth-child(3) {
+	border-radius: 0 0 6px 0;
+	border-left: 0px solid #000;
+}
+.bwindow:hover{
+	background: #24C;
+		color: rgba(255,255,255,1);
+		-webkit-box-shadow: 0 4px 16px 2px #888;
+box-shadow: 0 4px 16px 2px #444;
+
+}
+/*.bclose {	background: url('../img/window-buttons/close.svg') no-repeat center center;}
 .uclose {	background: url('../img/window-buttons/close_unfocused.svg') no-repeat center center;}
 .bclose:hover {	background: url('../img/window-buttons/close_prelight.svg') no-repeat center center;}
 .bclose:active {	background: url('../img/window-buttons/close_pressed.svg') no-repeat center center;}
@@ -198,7 +289,7 @@ border: 1px rgba(0,0,0,0.75) solid;
 .umaximize {	background: url('../img/window-buttons/maximize_unfocused.svg') no-repeat center center;}
 .bmaximize:hover {	background: url('../img/window-buttons/maximize_prelight.svg') no-repeat center center;}
 .bmaximize:active {	background: url('../img/window-buttons/maximize_pressed.svg') no-repeat center center;}
-
+*/
 .tshadow {
 	width: 100%;
 	padding: 4px;
@@ -241,7 +332,7 @@ border: 1px rgba(0,0,0,0.75) solid;
 }
 .menu_app_1 {
 	position: absolute; top: 0px; left: 0; right: 0; height: 40px;
-	background: rgba(56, 60, 74, 0.999);
+	background: rgba(0, 0, 0, 0.2);
 	display: inline-flex;
 	align-items: center;
 	justify-content: inline-start;
@@ -281,4 +372,101 @@ padding: 15px;
 }
 .fbrowser:active {
 	background-color: #316ac5;
+}
+
+.appbackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+		position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.win_is_focus {
+	-webkit-box-shadow: 1px 1px 24px 8px rgba(0,0,0,0.75);
+box-shadow: 1px 1px 24px 8px rgba(0,0,0,0.75);
+}
+
+.win_on_minimize {
+	transform: scale(0.1, 0.1) !important;
+	 top: 25% !important; 
+	 opacity: 0.10 !important;
+	 left: -100% !important;
+}
+
+.win_is_maximized {
+	top: 30px !important; left: 72px !important;
+	width: calc(100% - 72px) !important;
+	height: calc(100% - 30px) !important;
+			
+}
+	
+
+.custom-menu {
+    display: none;
+    z-index: 4000;
+    position: fixed;
+    overflow: hidden;
+    font-size: 12px;
+    border: 1px solid #CCC;
+    white-space: nowrap;
+    font-family: sans-serif;
+    background: #FFF;
+    color: #333;
+    border-radius: 5px;
+    padding: 0;
+}
+
+/* Each of the items in the list */
+.custom-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    list-style-type: none;
+    transition: all .3s ease;
+}
+
+.custom-menu li:hover {
+    background-color: #DEF;
+}
+
+.ease-in-500 {
+	-webkit-transition: all 500ms ease-in;
+-moz-transition: all 500ms ease-in;
+-ms-transition: all 500ms ease-in;
+-o-transition: all 500ms ease-in;
+transition: all 500ms ease-in;
+}
+.ease-out-500 {
+	-webkit-transition: all 500ms ease-out;
+-moz-transition: all 500ms ease-out;
+-ms-transition: all 500ms ease-out;
+-o-transition: all 500ms ease-out;
+transition: all 500ms ease-out;
+}
+.ease-out-300 {
+	-webkit-transition: all 300ms ease-out;
+-moz-transition: all 300ms ease-out;
+-ms-transition: all 300ms ease-out;
+-o-transition: all 300ms ease-out;
+transition: all 300ms ease-out;
+}
+
+
+.zz:before,
+.zz:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.zz:before {
+  background-position: 0px 0px, 0 100% ;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100% 2px;
+  -moz-background-size: 100% 2px;
+  background-size: 100% 2px;
+  background-image: -webkit-linear-gradient(to right, #3399ff 0%, rgba(0,0,0,0) 100%), -webkit-linear-gradient(right, rgba(0,0,0,0) 0%, #3399ff 100%);
+  background-image: -moz-linear-gradient(to right, #3399ff 0%, rgba(0,0,0,0) 100%), -moz-linear-gradient(right, rgba(0,0,0,0) 0%, #3399ff 100%);
+  background-image: -o-linear-gradient(to right, #3399ff 0%, rgba(0,0,0,0) 100%), -o-linear-gradient(right, rgba(0,0,0,0) 0%, #3399ff 100%);
+  background-image: linear-gradient(to right, #3399ff 0%, rgba(0,0,0,0) 100%), linear-gradient(to left, rgba(0,0,0,0) 0%, #3399ff 100%);
 }

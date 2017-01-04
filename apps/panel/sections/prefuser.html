@@ -155,6 +155,75 @@
 
 $('#uploadBackground').customFile();
 
+function getRandomArbitrary3(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+direccion = "../users/"+usuario+"/Fondos";
+$.getJSON( "./slist.php", { usdir: direccion, recdir: false } )
+  .done(function( json ) {
+    // Limpiamos el DIV
+    $("#fondos_subidos").html(""); 
+// Por cada entrada encontrada en el array...
+    $.each( json, function( i, item ) {
+      var NUMal = getRandomArbitrary3(500,80000000);
+          if(item.type == "dir") {
+            //SI ES UN DIRECTORIO NO MOSTRAMOS NADA
+          } else {
+            // Comprobamos que efectivamente los documentos que nos encontramos sean de formáto imágen
+            var extension = item.r_name.substr( (item.r_name.lastIndexOf('.') +1) );
+            tipos_de_imagen = ["jpg","jpeg", "png", "gif", "bmp", "ico"];
+            var ESTIP = $.inArray(extension, tipos_de_imagen);
+            if (ESTIP == 0) {
+            $("#fondos_subidos").append("<div class='browser_icon file fbrowser' id='file_"+NUMal+"' data-sort='2'></div>");
+            $("#file_"+NUMal).css({
+            "background": "#323232 url('"+item.name+"') no-repeat center center",
+            "-webkit-background-size": "100%",
+            "-moz-background-size": "100%",
+            "-o-background-size": "100%",
+            "background-size": "100%"
+             });
+
+
+              $("#file_"+NUMal).on("click", function(){
+              $.get( 'save_pref.php', { pref1: 'Fondos/'+item.r_name, pref2: 'Fondos/'+item.r_name } ); change_wall('users/'+usuario+'/Fondos/'+item.r_name);
+              });
+
+            }
+          }
+      });
+
+// DESPUES DE LEER EL DIRECTORIO....
+
+var bing_image = sessionStorage.getItem('bing_image');
+console.log(bing_image);
+        var bing_al = getRandomArbitrary3(500,80000000);
+
+        $("#fondos_subidos").append("<div class='browser_icon file fbrowser' id='file_"+bing_al+"' data-sort='2'><span>BING Daily</span></div>");
+        
+        $("#file_"+bing_al).css({
+            "background": "#323232 url('"+bing_image+"') no-repeat center center",
+            "-webkit-background-size": "100%",
+            "-moz-background-size": "100%",
+            "-o-background-size": "100%",
+            "background-size": "100%"
+        });
+         $("#file_"+bing_al).on("click", function(){
+              $.get( 'save_pref.php', { pref1: bing_image, pref2: bing_image, url_externa: true } ); 
+              change_wall(bing_image,"");
+              });
+
+
+  }).fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err ); });
+
+
+
+
+
+
+
+
   });
  </script>
  <style>
@@ -228,3 +297,8 @@ $('#uploadBackground').customFile();
 </form>
 Los fondos se reemplazaran si tienen el mismo nombre de fichero que el anterior. Todos los ficheros son subidos a su espacio personal.
 <div id="respuesta" style="color: red;"></div>
+
+<br /> Si lo prefiere puede seleccionar cualquiera de los fondos subidos a su cuenta personal. (Se suben automáticamente a su directorio /Fondos en LayanOS al subir un fondo).
+<div id="fondos_subidos">
+  EN ESTE CUADRO CARGAREMOS LAS FOTOS
+</div>

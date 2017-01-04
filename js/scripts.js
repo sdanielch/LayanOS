@@ -90,7 +90,7 @@ $.get( "./php/c_session.php", function( data ) {
   if ( data.session == "true" ) {
     console.log("Hay un usuario activo en la sesión: " + data.usuario);
     console.log("Registrado el: " + data.registrado)
-    $(".info").html("Bienvenido de nuevo " + data.nombre);
+    $(".info").html("Bienvenido de nuevo " + data.nombre + "<a href='php/app.php'> ¿Continuar?</a>");
     $("#log1").text("Cambiar de usuario");
   } else {
     console.log("Sesión limpia");

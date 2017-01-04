@@ -29,20 +29,21 @@ Los desarrolladores implicados son:
 
 ### Como instalar **LayanOS**
 
-Clone el repositorio master de LayanOS en el directorio de trabajo de Apache o su servidor web, luego vaya a su *PhpMyAdmin* y configure una nueva base de datos, importe en ella **layanos.sql** y modifique **php/acceso_db.php** con los datos de acceso al servidor y a la base de datos.
-
-AVISO: LAYANOS NO ES ESTABLE, ACTUALMENTE ESTÁ EN FASE DE DESARROLLO.
+Clone el repositorio master de LayanOS en el directorio de trabajo de Apache o su servidor web, luego vaya a su *PhpMyAdmin* y configure una nueva base de datos llamada layanos, en esa base de datos importe el fichero "usuarios.sql" de este mismo repositorio. Si esta en una instalación con XAMPP ya debería funcionar la plataforma, si no es así entonces debe configurar el acceso a la base de datos en <b>/php/database.php</b>
 
 
 
 Últimos cambios:
+- Cambios en el modo de abrir los documentos
+- Cambios en el panel de control
+- Configuración adaptada a XAMPP 
+- Probado en Debian Testing/Ubuntu 16.04.1 LTS/Fedora 25/Archlinux
+-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
 - Soporte para PHP7
 - Conexión de la base de datos en MySQLi
 - Mayor estabilidad
 - Menor consumo de recursos
 - Soporte para WebCam
 
-### Usuario y contraseña por defecto 
 
-**USER**: admin
-**PASS**: admin
+
